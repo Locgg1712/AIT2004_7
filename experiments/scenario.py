@@ -129,11 +129,11 @@ def add_swamps(g, rng, target_frac=0.25, protect=()):
 
 
 def make_search_maze(cell_w, cell_h, seed, swamp=False, p_deadend=0.5, p_extra=0.06):
-    """Me cung lon 1 dich: P o goc duoi-phai, '.' o goc tren-trai."""
+    """Me cung lon 1 dich: P o goc tren-phai, '.' o goc duoi-trai (toa do Pacman (1,1))."""
     rng = random.Random(seed)
     g = braid(carve_maze(cell_w, cell_h, rng), rng, p_deadend, p_extra)
     H, W = len(g), len(g[0])
-    start, goal = (H - 2, W - 2), (1, 1)
+    start, goal = (1, W - 2), (H - 2, 1)
     if swamp:
         add_swamps(g, rng, 0.25, protect=(start, goal))
     g[start[0]][start[1]] = "P"
