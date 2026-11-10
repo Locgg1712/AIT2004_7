@@ -1,0 +1,30 @@
+# Ignore everything by default
+*
+
+# Track .gitignore
+!.gitignore
+
+# Project 1: Search
+!search/
+search/*
+!search/search.py
+!search/searchAgents.py
+
+# Project 2: Multi-Agent Search
+!multiagent/
+multiagent/*
+!multiagent/multiAgents.py
+
+# Project 3: Reinforcement Learning
+!reinforcement/
+reinforcement/*
+!reinforcement/valueIterationAgents.py
+!reinforcement/qlearningAgents.py
+!reinforcement/analysis.py
+
+# Project 5: Machine Learning
+!machinelearning/
+machinelearning/*
+!machinelearning/models.py
+!machinelearning/train.py
+!machinelearning/losses.py
