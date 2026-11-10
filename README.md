@@ -45,8 +45,10 @@ d:\AIT2004_7\
     ├── exp_rl.py                     # Thực nghiệm E & F (Tốc độ hội tụ Bellman & Khái quát hóa Q-Learning)
     ├── exp_ml.py                     # Thực nghiệm G & H (Vector hóa Convolve & Bậc hai Self-Attention)
     ├── summarize.py                  # Script tổng hợp kết quả từ CSV
+    ├── plot_all_figures.py           # Script tự động vẽ toàn bộ biểu đồ thực nghiệm
     ├── REPORT.md                     # Báo cáo phân tích chi tiết số liệu thực nghiệm
     ├── EXPLANATION_GUIDE.md          # Bản hướng dẫn chuyên sâu về code & thực nghiệm
+    ├── figures/                      # Toàn bộ hình ảnh biểu đồ thực nghiệm (.png)
     ├── layouts/                      # Các file bản đồ mê cung lớn (.lay) đã sinh
     └── results/                      # Các file dữ liệu kết quả thực nghiệm (.csv)
 ```
