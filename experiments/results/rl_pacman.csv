@@ -1,0 +1,33 @@
+layout,agent,n_train,seed,win_rate,avg_score,food_cleared,learned_params,train_seconds
+mediumClassic,Approximate Q-Learning (SimpleExtractor),50,1,0.9,1230.2,0.9778,4,26.58
+mediumClassic,Approximate Q-Learning (SimpleExtractor),50,2,0.95,1252.3,0.9634,4,27.5
+mediumClassic,Approximate Q-Learning (SimpleExtractor),200,1,0.9,1202.7,0.9722,4,87.61
+mediumClassic,Approximate Q-Learning (SimpleExtractor),200,2,1.0,1360.5,1.0,4,84.88
+mediumClassic,Approximate Q-Learning (SimpleExtractor),500,1,0.9,1187.0,0.949,4,184.64
+mediumClassic,Approximate Q-Learning (SimpleExtractor),500,2,0.9,1166.8,0.9273,4,181.21
+mediumClassic,Approximate Q-Learning (SimpleExtractor),1000,1,1.0,1321.3,1.0,4,244.36
+mediumClassic,Approximate Q-Learning (SimpleExtractor),1000,2,0.9,1183.2,0.9474,4,239.54
+mediumClassic,Tabular Q-Learning,50,1,0.0,-437.6,0.1082,13115,14.91
+mediumClassic,Tabular Q-Learning,50,2,0.0,-429.5,0.1608,18123,15.84
+mediumClassic,Tabular Q-Learning,200,1,0.0,-381.8,0.1773,43946,55.99
+mediumClassic,Tabular Q-Learning,200,2,0.0,-409.3,0.1701,45925,53.37
+mediumClassic,Tabular Q-Learning,500,1,0.0,-411.1,0.151,93443,103.7
+mediumClassic,Tabular Q-Learning,500,2,0.0,-390.4,0.1691,99969,104.15
+mediumClassic,Tabular Q-Learning,1000,1,0.0,-384.2,0.1588,180962,208.55
+mediumClassic,Tabular Q-Learning,1000,2,0.0,-417.9,0.1361,183862,202.85
+smallGrid,Approximate Q-Learning (SimpleExtractor),50,1,0.6,101.2,0.8,4,1.38
+smallGrid,Approximate Q-Learning (SimpleExtractor),50,2,0.85,352.4,0.925,4,1.41
+smallGrid,Approximate Q-Learning (SimpleExtractor),200,1,0.9,401.9,0.95,4,5.19
+smallGrid,Approximate Q-Learning (SimpleExtractor),200,2,0.5,-1.1,0.75,4,5.06
+smallGrid,Approximate Q-Learning (SimpleExtractor),500,1,0.85,349.8,0.925,4,13.71
+smallGrid,Approximate Q-Learning (SimpleExtractor),500,2,0.65,149.8,0.825,4,18.06
+smallGrid,Approximate Q-Learning (SimpleExtractor),1000,1,0.55,50.2,0.775,4,29.6
+smallGrid,Approximate Q-Learning (SimpleExtractor),1000,2,0.75,252.2,0.875,4,30.89
+smallGrid,Tabular Q-Learning,50,1,0.0,-510.4,0.025,795,0.58
+smallGrid,Tabular Q-Learning,50,2,0.0,-509.1,0.1,1067,0.68
+smallGrid,Tabular Q-Learning,200,1,0.0,-514.5,0.2,2321,3.91
+smallGrid,Tabular Q-Learning,200,2,0.0,-509.6,0.175,2418,4.08
+smallGrid,Tabular Q-Learning,500,1,0.15,-355.3,0.575,4143,9.13
+smallGrid,Tabular Q-Learning,500,2,0.55,37.9,0.65,4379,11.94
+smallGrid,Tabular Q-Learning,1000,1,0.65,145.8,0.825,5671,23.61
+smallGrid,Tabular Q-Learning,1000,2,0.65,137.9,0.7,5789,28.24

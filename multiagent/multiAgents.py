@@ -199,7 +199,7 @@ class MinimaxAgent(MultiAgentSearchAgent):
         for action in gameState.getLegalActions(0):
             successor = gameState.generateSuccessor(0, action)
             score = minimax(successor, nextAgent, nextDepth)
-            if score > bestScore:
+            if score > bestScore or bestAction is None:
                 bestScore = score
                 bestAction = action
 
@@ -257,7 +257,7 @@ class AlphaBetaAgent(MultiAgentSearchAgent):
         for action in gameState.getLegalActions(0):
             successor = gameState.generateSuccessor(0, action)
             score = alphabeta(successor, nextAgent, nextDepth, alpha, beta)
-            if score > bestScore:
+            if score > bestScore or bestAction is None:
                 bestScore = score
                 bestAction = action
             alpha = max(alpha, bestScore)
@@ -313,7 +313,7 @@ class ExpectimaxAgent(MultiAgentSearchAgent):
         for action in gameState.getLegalActions(0):
             successor = gameState.generateSuccessor(0, action)
             score = expectimax(successor, nextAgent, nextDepth)
-            if score > bestScore:
+            if score > bestScore or bestAction is None:
                 bestScore = score
                 bestAction = action
 

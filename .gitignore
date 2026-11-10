@@ -1,8 +1,9 @@
 # Ignore everything by default
 *
 
-# Track .gitignore
+# Track .gitignore & README.md
 !.gitignore
+!README.md
 
 # Project 1: Search
 !search/
@@ -28,3 +29,11 @@ machinelearning/*
 !machinelearning/models.py
 !machinelearning/train.py
 !machinelearning/losses.py
+
+# Extended Experiments, Scenarios, Metrics & Reports
+!experiments/
+!experiments/**
+experiments/*.log
+__pycache__/
+*.pyc
+
