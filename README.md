@@ -319,7 +319,7 @@ cd d:\AIT2004_7\reinforcement; python autograder.py --no-graphics
 cd d:\AIT2004_7\machinelearning; python autograder.py --no-graphics
 ```
 
-### 8.2. Chạy lại toàn bộ Kịch bản Ma trận lớn & Xuất báo cáo
+### 8.2. Chạy lại toàn bộ Kịch bản Ma trận lớn & Xuất báo cáo, Biểu đồ
 ```powershell
 cd d:\AIT2004_7
 python experiments/scenario.py
@@ -328,7 +328,9 @@ python experiments/exp_multiagent.py
 python experiments/exp_rl.py
 python experiments/exp_ml.py
 python experiments/summarize.py
+python experiments/plot_all_figures.py
 ```
 
+- Toàn bộ hình ảnh thực nghiệm trực quan: [`experiments/figures/`](file:///d:/AIT2004_7/experiments/figures/)
 - Xem báo cáo phân tích số liệu đầy đủ tại: [`experiments/REPORT.md`](file:///d:/AIT2004_7/experiments/REPORT.md)
 - Xem hướng dẫn giải thích chuyên sâu từng đoạn code tại: [`experiments/EXPLANATION_GUIDE.md`](file:///d:/AIT2004_7/experiments/EXPLANATION_GUIDE.md)
