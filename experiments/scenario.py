@@ -1,22 +1,18 @@
 """
-scenario.py - Sinh kich ban "Thanh pho me cung" (Pacman Mega-City) co kich thuoc lon.
+scenario.py - Sinh kich ban thong nhat "Thanh pho Me cung" (Pacman Mega-City) va cac bien the mo rong.
 
-Kich ban gom 3 lop bai toan, moi lop dung de danh gia mot nhom ky thuat da hoc:
+Kich ban trung tam: "Pacman Mega-City" (31x21) la mot thanh pho me cung da duong di (braided maze)
+co vung dam lay '~' (chi phi di chuyen 5 thay vi 1), thuc an '.', 4 vien nang luong 'o' o 4 goc,
+va 3 Ghost 'G' tuan tra o trung tam. Tren cung mot cau truc ban do Mega-City nay, ta chay xuyen suot
+ca 4 nhom ky thuat cua mon hoc:
+  1. Project 1 (Search): Tim duong tranh dam lay (megacity_route) va thu thap da muc tieu (megacity_food).
+  2. Project 2 (Multi-Agent): Doi khang voi 3 Ghost tren Mega-City (megacity_arena) va dau truong lon 41x21.
+  3. Project 3 (Reinforcement Learning): Huan luyen & chuyen giao Zero-Shot sang Mega-City, cung quy hoach
+     dong MDP tren luoi Gridworld lon (10x10 -> 40x40).
+  4. Project 5 (Machine Learning): Hoc bat chuoc (Imitation Learning) chinh sach cua AlphaBeta tren Mega-City
+     bang MLP va CNN (su dung models.Convolve), cung danh gia mo rong Convolve 2D va Self-Attention.
 
-  1. Tim duong (Project 1 - Search):
-     Me cung lon (toi 101x101 o) co nhieu vong lap (braided maze) va vung "dam lay" '~'
-     co chi phi di chuyen cao (5 thay vi 1). Pacman phai di tu goc duoi-phai den goc
-     tren-trai. Bien the "nhieu thuc an" yeu cau an het k cham thuc an.
-
-  2. Doi khang (Project 2 - Multi-Agent Search):
-     Ban do kieu Pacman co dien lon (41x21) voi nhieu ma (ghost), nhieu vien nang luong.
-
-  3. Hoc tang cuong (Project 3 - Reinforcement Learning):
-     Gridworld lon (toi 30x30) co tuong, ho bay (-10), loi ra nho (+1) gan diem xuat phat
-     va loi ra lon (+10) o xa, voi nhieu chuyen dong (noise).
-
-Tat ca deu sinh ngau nhien co dinh hat giong (seed) de ket qua tai lap duoc.
-Chay truc tiep file nay de sinh cac file .lay mau vao thu muc experiments/layouts.
+Tat ca deu sinh ngau nhien co dinh hat giong (seed) de ket qua tai lap duoc 100%.
 """
 import os
 import random
@@ -25,12 +21,12 @@ from collections import deque
 HERE = os.path.dirname(os.path.abspath(__file__))
 LAYOUT_DIR = os.path.join(HERE, "layouts")
 
-SWAMP_CHAR = "~"     # Layout.py bo qua ky tu la -> o trong; ta tu doc lai de tinh chi phi
+SWAMP_CHAR = "~"     # layout.py bo qua ky tu la -> o trong; ta tu doc lai de tinh chi phi
 SWAMP_COST = 5
 
 
 # ---------------------------------------------------------------------------
-# Sinh me cung co ban
+# Sinh me cung co ban (Recursive Backtracker + Braiding)
 # ---------------------------------------------------------------------------
 def carve_maze(cell_w, cell_h, rng):
     """Me cung hoan hao (perfect maze) bang thuat toan recursive backtracker.
@@ -99,13 +95,13 @@ def to_text(g):
 def save_layout(lines, name):
     os.makedirs(LAYOUT_DIR, exist_ok=True)
     path = os.path.join(LAYOUT_DIR, name + ".lay")
-    with open(path, "w") as f:
+    with open(path, "w", encoding="utf-8") as f:
         f.write("\n".join(lines))
     return path
 
 
 # ---------------------------------------------------------------------------
-# 1) Kich ban tim duong
+# 1) Kich ban tim duong & da muc tieu
 # ---------------------------------------------------------------------------
 def add_swamps(g, rng, target_frac=0.25, protect=()):
     """Rai cac vung dam lay hinh dom (blob) cho den khi phu ~target_frac so o trong."""
@@ -162,7 +158,7 @@ def swamp_positions(lines):
 
 
 # ---------------------------------------------------------------------------
-# 2) Kich ban doi khang
+# 2) Kich ban doi khang & Kich ban thong nhat "Pacman Mega-City"
 # ---------------------------------------------------------------------------
 def make_classic_arena(cell_w, cell_h, n_ghosts, seed, food_frac=0.45, n_capsules=4):
     """Ban do Pacman lon kieu co dien: it ngo cut, thuc an rai rac, nhieu ma o giua."""
@@ -170,12 +166,9 @@ def make_classic_arena(cell_w, cell_h, n_ghosts, seed, food_frac=0.45, n_capsule
     g = braid(carve_maze(cell_w, cell_h, rng), rng, p_deadend=1.0, p_extra=0.18)
     H, W = len(g), len(g[0])
     cells = open_cells(g)
-    # Pacman: o trong gan giua canh duoi
     pac = min(cells, key=lambda rc: (abs(rc[0] - (H - 2)) * 3 + abs(rc[1] - W // 2)))
-    # Ma: cac o gan tam ban do
     center = sorted(cells, key=lambda rc: abs(rc[0] - H // 2) + abs(rc[1] - W // 2))
     ghosts = [rc for rc in center if rc != pac][:n_ghosts]
-    # Vien nang luong: gan 4 goc
     corners = [(1, 1), (1, W - 2), (H - 2, 1), (H - 2, W - 2)]
     caps = []
     for cr, cc in corners[:n_capsules]:
@@ -183,6 +176,54 @@ def make_classic_arena(cell_w, cell_h, n_ghosts, seed, food_frac=0.45, n_capsule
     taken = {pac, *ghosts, *caps}
     for r, c in cells:
         if (r, c) not in taken and rng.random() < food_frac:
+            g[r][c] = "."
+    for r, c in caps:
+        g[r][c] = "o"
+    for r, c in ghosts:
+        g[r][c] = "G"
+    g[pac[0]][pac[1]] = "P"
+    return to_text(g)
+
+
+def make_megacity(mode="arena", seed=1, n_food=9, n_ghosts=3, n_capsules=4):
+    """Sinh ban do thong nhat 'Pacman Mega-City' (31x21) dung chung cho ca 4 Project:
+      - mode='route': 1 dich '.' tai (1,1) (goc duoi-trai), P tai goc tren-phai, co dam lay '~'.
+      - mode='food' : k=n_food vien thuc an rai tren thanh pho, khong co Ghost.
+      - mode='arena': day du thuc an, 4 vien capsule o 4 goc, va 3 Ghost o trung tam.
+    Cung mot hat giong `seed` se tao ra cung mot khung tuong thanh pho 31x21."""
+    rng = random.Random(seed + 700)
+    g = braid(carve_maze(15, 10, rng), rng, p_deadend=0.9, p_extra=0.15)
+    H, W = len(g), len(g[0])
+    cells = open_cells(g)
+
+    if mode == "route":
+        start, goal = (1, W - 2), (H - 2, 1)
+        add_swamps(g, rng, 0.25, protect=(start, goal))
+        g[start[0]][start[1]] = "P"
+        g[goal[0]][goal[1]] = "."
+        return to_text(g)
+
+    if mode == "food":
+        rng_f = random.Random(seed + 900)
+        pool = list(cells)
+        rng_f.shuffle(pool)
+        pr, pc = pool[0]
+        g[pr][pc] = "P"
+        for r, c in pool[1:1 + n_food]:
+            g[r][c] = "."
+        return to_text(g)
+
+    # mode == 'arena'
+    rng_a = random.Random(seed + 1100)
+    pac = min(cells, key=lambda rc: (abs(rc[0] - (H - 2)) * 3 + abs(rc[1] - W // 2)))
+    center = sorted(cells, key=lambda rc: abs(rc[0] - H // 2) + abs(rc[1] - W // 2))
+    ghosts = [rc for rc in center if rc != pac][:n_ghosts]
+    corners = [(1, 1), (1, W - 2), (H - 2, 1), (H - 2, W - 2)]
+    caps = [min(cells, key=lambda rc: abs(rc[0] - cr) + abs(rc[1] - cc))
+            for cr, cc in corners[:n_capsules]]
+    taken = {pac, *ghosts, *caps}
+    for r, c in cells:
+        if (r, c) not in taken and rng_a.random() < 0.35:
             g[r][c] = "."
     for r, c in caps:
         g[r][c] = "o"
@@ -211,7 +252,6 @@ def make_gridworld(width, height, seed, wall_frac=0.18, pit_frac=0.03):
         small = (height - 1 - max(1, height // 5), max(1, width // 5))
         for (r, c) in (s, big, small):
             g[r][c] = " "
-        # Ho bay
         free = [(r, c) for r in range(height) for c in range(width)
                 if g[r][c] == " " and (r, c) not in (s, big, small)]
         rng.shuffle(free)
@@ -221,7 +261,6 @@ def make_gridworld(width, height, seed, wall_frac=0.18, pit_frac=0.03):
         g[big[0]][big[1]] = 10
         g[small[0]][small[1]] = 1
 
-        # Kiem tra lien thong (o thoat/ho bay la diem cuoi, khong di xuyen qua)
         seen = {s}
         q = deque([s])
         while q:
@@ -253,11 +292,8 @@ if __name__ == "__main__":
         "maze_101x101_swamp": make_search_maze(50, 50, seed=1, swamp=True),
         "food_31x31_k8": make_food_maze(15, 15, 8, seed=1),
         "arena_41x21_3ghosts": make_classic_arena(20, 10, 3, seed=1),
+        "megacity_31x21": make_megacity("arena", seed=1),
     }
     for name, lines in samples.items():
         path = save_layout(lines, name)
         print("%-24s %3dx%-3d -> %s" % (name, len(lines[0]), len(lines), path))
-    print("\nVi du arena_41x21_3ghosts:")
-    print("\n".join(samples["arena_41x21_3ghosts"]))
-    print("\nVi du gridworld 20x20 (E=+10, e=+1, x=-10, #=tuong):")
-    print("\n".join(gridworld_to_text(make_gridworld(20, 20, seed=1))))

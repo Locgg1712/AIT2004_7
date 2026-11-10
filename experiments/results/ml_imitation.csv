@@ -1,0 +1,4 @@
+agent,role,dataset_samples,val_action_acc,megacity_score,megacity_score_std,megacity_food_cleared,megacity_moves,ms_per_move,speedup_vs_teacher
+Teacher: AlphaBeta-d2 (mazeEval),Expert Teacher (Search),1139,1.0,939.2,440.7,0.6613,247,15.545,1.0
+Imitation-MLP (Project 5 Q3),Neural Student (Project 5),1139,0.864,-221.9,195.7,0.2756,94.4,0.751,20.7
+Imitation-CNN (models.Convolve Q5),Neural Student (Project 5),1139,0.8553,-344.1,169.6,0.1485,42.9,1.317,11.8

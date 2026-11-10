@@ -1,327 +1,82 @@
-# CS188 AI Projects (1, 2, 3, 5) & Thực Nghiệm Mở Rộng Trên Ma Trận Cỡ Lớn
+# CS188 Artificial Intelligence — Projects 1, 2, 3, 5 & Nghiên Cứu Mở Rộng Quy Mô Lớn trên Đô Thị "Pacman Mega-City"
 
-Tài liệu `README.md` này trình bày toàn diện **cách giải quyết và hiện thực chi tiết từng thuật toán** trong 4 bài tập lớn của môn Trí tuệ Nhân tạo (UC Berkeley CS188: **Search**, **Multi-Agent Search**, **Reinforcement Learning**, **Machine Learning**), đồng thời giải thích chi tiết **cách thiết kế kịch bản ma trận cỡ lớn, hệ thống độ đo (evaluation metrics) và kết quả thực nghiệm đánh giá hiệu năng**.
-
----
-
-## Mục Lục
-
-1. [Cấu trúc thư mục & Điểm số Autograder](#1-cấu-trúc-thư-mục--điểm-số-autograder)
-2. [Project 1: Search — Giải thích chi tiết Thuật toán & Heuristic (`search/`)](#2-project-1-search--giải-thích-chi-tiết-thuật-toán--heuristic-search)
-3. [Project 2: Multi-Agent Search — Tìm kiếm Đối kháng & Hàm Lượng giá (`multiagent/`)](#3-project-2-multi-agent-search--tìm-kiếm-đối-kháng--hàm-lượng-giá-multiagent)
-4. [Project 3: Reinforcement Learning — Quy hoạch động & Học tăng cường (`reinforcement/`)](#4-project-3-reinforcement-learning--quy-hoạch-động--học-tăng-cường-reinforcement)
-5. [Project 5: Machine Learning — Mạng Nơ-ron, RNN, Tích chập & Self-Attention (`machinelearning/`)](#5-project-5-machine-learning--mạng-nơ-ron-rnn-tích-chập--self-attention-machinelearning)
-6. [Xây dựng Kịch bản Ma trận lớn & Cơ chế Đo lường (`experiments/`)](#6-xây-dựng-kịch-bản-ma-trận-lớn--cơ-chế-đo-lường-experiments)
-7. [Độ đo Đánh giá (Metrics) & Tổng hợp Kết quả Thực nghiệm](#7-độ-đo-đánh-giá-metrics--tổng-hợp-kết-quả-thực-nghiệm)
-8. [Hướng dẫn chạy Kiểm thử & Tái lập Thực nghiệm](#8-hướng-dẫn-chạy-kiểm-thử--tái-lập-thực-nghiệm)
+Kho lưu trữ này chứa lời giải hoàn chỉnh đạt điểm tuyệt đối kèm thưởng (**102 / 100 điểm**) cho 4 bài tập lớn cốt lõi của học phần Trí tuệ Nhân tạo (**UC Berkeley CS188 / AIT2004**), cùng một khung thực nghiệm mở rộng quy mô lớn ([`experiments/`](./experiments)) liên kết cả 4 dự án trên cùng một kịch bản đô thị hợp nhất **Pacman Mega-City ($31\times 21$)** và các ma trận kích thước lớn ($151\times 151$, $k=11$ thức ăn, MDP $40\times 40$, ảnh $256\times 256$, chuỗi $T=512$).
 
 ---
 
-## 1. Cấu trúc thư mục & Điểm số Autograder
+## 1. Tài Liệu Chính Thức trong Kho Mã Nguồn
 
-Toàn bộ dự án gồm 4 bài tập cốt lõi và 1 bộ khung thực nghiệm mở rộng (`experiments/`):
+Để tránh trùng lặp nội dung và đảm bảo tính nhất quán tuyệt đối với dữ liệu CSV, hệ thống tài liệu được phân tách rõ ràng theo 3 cấp độ:
 
-```text
-d:\AIT2004_7\
-├── README.md                         # Tài liệu giải thích tổng thể & hướng dẫn chi tiết (file này)
-├── .gitignore                        # Whitelist chỉ cho phép git theo dõi các file bài nộp chuẩn
-├── search/                           # Project 1: Search (Điểm Autograder: 26/25)
-│   ├── search.py                     # DFS, BFS, UCS, A* (Graph Search)
-│   └── searchAgents.py               # CornersProblem, cornersHeuristic, foodHeuristic, ClosestDot
-├── multiagent/                       # Project 2: Multi-Agent Search (Điểm Autograder: 25/25)
-│   └── multiAgents.py                # Reflex, Minimax, AlphaBeta, Expectimax, betterEvaluationFunction
-├── reinforcement/                    # Project 3: Reinforcement Learning (Điểm Autograder: 26/25)
-│   ├── valueIterationAgents.py       # Value Iteration đồng bộ & Prioritized Sweeping
-│   ├── qlearningAgents.py            # Tabular Q-Learning, Epsilon-Greedy, Approximate Q-Learning
-│   └── analysis.py                   # Thiết kế tham số MDP (Discount, Noise, LivingReward)
-├── machinelearning/                  # Project 5: Machine Learning (Điểm Autograder: 25/25)
-│   ├── models.py                     # Perceptron, MLP, RNN, Vectorized Convolve 2D, Causal Attention
-│   ├── losses.py                     # MSE Loss & Cross-Entropy Loss
-│   └── train.py                      # Vòng lặp huấn luyện tối ưu hóa
-└── experiments/                      # Kịch bản mở rộng ma trận lớn & đánh giá định lượng
-    ├── scenario.py                   # Sinh mê cung Braided 151x151, Đầm lầy, Arena 41x21, MDP 30x30
-    ├── exp_search.py                 # Thực nghiệm A & B (Mở rộng mê cung & Bùng nổ tổ hợp Multi-Food)
-    ├── exp_multiagent.py             # Thực nghiệm C & D (Cắt tỉa Alpha-Beta & Đấu trường 3 Ghost)
-    ├── exp_rl.py                     # Thực nghiệm E & F (Tốc độ hội tụ Bellman & Khái quát hóa Q-Learning)
-    ├── exp_ml.py                     # Thực nghiệm G & H (Vector hóa Convolve & Bậc hai Self-Attention)
-    ├── summarize.py                  # Script tổng hợp kết quả từ CSV
-    ├── plot_all_figures.py           # Script tự động vẽ toàn bộ biểu đồ thực nghiệm
-    ├── REPORT.md                     # Báo cáo phân tích chi tiết số liệu thực nghiệm
-    ├── EXPLANATION_GUIDE.md          # Bản hướng dẫn chuyên sâu về code & thực nghiệm
-    ├── figures/                      # Toàn bộ hình ảnh biểu đồ thực nghiệm (.png)
-    ├── layouts/                      # Các file bản đồ mê cung lớn (.lay) đã sinh
-    └── results/                      # Các file dữ liệu kết quả thực nghiệm (.csv)
-```
+1. **[`experiments/REPORT.md`](./experiments/REPORT.md) — Báo Cáo Khoa Học Toàn Diện (Tài liệu chính):**  
+   Trình bày đầy đủ mục tiêu, phương pháp toán học của từng câu hỏi trong Projects 1, 2, 3, 5 (điểm autograder, tham số `analysis.py`, kiến trúc mạng Project 5) và toàn bộ kết quả định lượng của **9 bộ thí nghiệm mở rộng (A $\to$ I)** kèm độ lệch chuẩn (`± std`), khoảng tin cậy `Wilson 95% CI`, hệ số lũy thừa $\alpha$, và 11 biểu đồ phân tích.
+2. **[`experiments/EXPLANATION_GUIDE.md`](./experiments/EXPLANATION_GUIDE.md) — Hướng Dẫn Kiến Trúc Mã Nguồn & Chạy Trực Quan GUI:**  
+   Giải thích chi tiết từng hàm/lớp thực tế trong mã nguồn (`make_megacity`, `SwampProblem`, `mazeBetterEvaluationFunction`, `OrderedAlphaBetaAgent`, `MegaCityExtractor`, `CharAttentionLM`, `ImitationCNN`) và các lệnh dòng lệnh để mở cửa sổ đồ họa xem Pacman tự chạy.
+3. **[`experiments/summarize.py`](./experiments/summarize.py) & [`experiments/results/`](./experiments/results) — Dữ Liệu Kiểm Chứng Tự Động:**  
+   Chứa 9 tệp dữ liệu thực nghiệm `.csv` và kịch bản tổng hợp thống kê tự động đảm bảo **100% số liệu trong tài liệu khớp hoàn toàn với kết quả thực thi**.
 
 ---
 
-## 2. Project 1: Search — Giải thích chi tiết Thuật toán & Heuristic (`search/`)
+## 2. Tổng Hợp Điểm Chấm Tự Động (CS188 Autograder)
 
-### 2.1. Khung tìm kiếm đồ thị tổng quát (`search/search.py`)
-
-Cả 4 thuật toán trong [`search/search.py`](file:///d:/AIT2004_7/search/search.py) đều được cài đặt theo mô hình **Graph Search** (lưu tập trạng thái đã mở rộng để không bị lặp vô hạn trên đồ thị có chu trình). Điểm khác biệt cốt lõi nằm ở **cấu trúc dữ liệu của hàng đợi biên (`frontier`)** và **cách quản lý chi phí**:
-
-| Thuật toán | Hàm trong `search.py` | Cấu trúc `frontier` | Thứ tự ưu tiên lấy nút ra | Đảm bảo tối ưu? |
-| :--- | :--- | :--- | :--- | :--- |
-| **DFS** | [`depthFirstSearch`](file:///d:/AIT2004_7/search/search.py#L75-L107) | `util.Stack()` (LIFO) | Nút mới nhất (sâu nhất) | **Không** |
-| **BFS** | [`breadthFirstSearch`](file:///d:/AIT2004_7/search/search.py#L109-L129) | `util.Queue()` (FIFO) | Nút nông nhất (ít bước đi nhất) | Chỉ khi chi phí mọi bước bằng nhau ($c=1$) |
-| **UCS** | [`uniformCostSearch`](file:///d:/AIT2004_7/search/search.py#L131-L156) | `util.PriorityQueue()` | Chi phí tích lũy nhỏ nhất $g(n)$ | **Có** (với mọi chi phí dương $c > 0$) |
-| **A\*** | [`aStarSearch`](file:///d:/AIT2004_7/search/search.py#L165-L192) | `util.PriorityQueue()` | Tổng chi phí ước lượng $f(n) = g(n) + h(n)$ | **Có** (khi $h(n)$ admissible & consistent) |
-
-#### Các chi tiết kỹ thuật quan trọng khi cài đặt:
-1. **Kiểm tra `visited` lúc `pop()` thay vì lúc `push()`:**
-   Trong `depthFirstSearch` và `breadthFirstSearch`, ta chỉ kiểm tra `if state in visited: continue` và `visited.add(state)` **ngay sau khi lấy nút ra khỏi `frontier`** (trước khi gọi `problem.getSuccessors(state)`). Điều này tuân thủ đúng định nghĩa chuẩn của CS188: một nút chỉ được coi là *đã đóng (closed/expanded)* khi nó thực sự được lấy ra để sinh các nút con, giúp số nút mở rộng (`_expanded`) khớp tuyệt đối với autograder.
-2. **Cơ chế chống mở rộng lặp với chi phí cao hơn trong `UCS` và `A*`:**
-   Một trạng thái `s` có thể được đẩy vào `PriorityQueue` nhiều lần từ các đường đi khác nhau với chi phí $g_1 > g_2$. Trong [`uniformCostSearch`](file:///d:/AIT2004_7/search/search.py#L135-L154) và [`aStarSearch`](file:///d:/AIT2004_7/search/search.py#L170-L190), ta sử dụng hai từ điển `best_cost` và `expanded_cost`:
-   - Khi lấy `(state, actions, cost)` từ `PriorityQueue`: nếu `state` đã từng được mở rộng với chi phí nhỏ hơn hoặc bằng (`cost >= expanded_cost[state]`), ta bỏ qua ngay.
-   - Khi duyệt nút con `successor` với `new_cost = cost + step_cost`: chỉ đẩy vào `frontier` nếu `successor` chưa có trong `best_cost` hoặc `new_cost < best_cost[successor]`.
+| Project | Chủ đề Cốt lõi | Tệp Bài nộp Chuẩn | Điểm Đạt được | Chi tiết Từng Câu hỏi |
+| :--- | :--- | :--- | :---: | :--- |
+| **Project 1** | Tìm kiếm Không gian Trạng thái (`search/`) | [`search.py`](./search/search.py), [`searchAgents.py`](./search/searchAgents.py) | **26 / 25** | Q1: 3/3, Q2: 3/3, Q3: 3/3, Q4: 3/3, Q5: 3/3, Q6: 3/3, **Q7: 5/4** (6.690 nút `< 7.000`), Q8: 3/3 |
+| **Project 2** | Tìm kiếm Đối kháng Đa tác tử (`multiagent/`) | [`multiAgents.py`](./multiagent/multiAgents.py) | **25 / 25** | Q1: 4/4, Q2: 5/5, Q3: 5/5, Q4: 5/5, Q5: 6/6 (`> 1.350` điểm trung bình) |
+| **Project 3** | Quy hoạch Động MDP & Học Tăng cường (`reinforcement/`) | [`valueIterationAgents.py`](./reinforcement/valueIterationAgents.py), [`qlearningAgents.py`](./reinforcement/qlearningAgents.py), [`analysis.py`](./reinforcement/analysis.py) | **26 / 25** | Q1: 4/4, Q2: 5/5, Q3: 5/5, **Q4: 5/4** (`PrioritizedSweeping`), Q5: 2/2, Q6: 4/4, Q7: 1/1 |
+| **Project 5** | Học Máy & Mạng Nơ-ron Sâu (`machinelearning/`) | [`models.py`](./machinelearning/models.py), [`train.py`](./machinelearning/train.py) | **25 / 25** | Q1: 6/6, Q2: 4/4, Q3: 6/6 (`>98%` MNIST), Q4: 5/5 (`>86.5%` LangID), Q5: 2/2, Q6: 2/2 |
+| **Tổng cộng** | | **10 tệp bài nộp chuẩn** | **102 / 100** | Vượt qua 100% test cases của cả 4 bộ `autograder.py` |
 
 ---
 
-### 2.2. Biểu diễn trạng thái & Thiết kế Heuristic (`search/searchAgents.py`)
+## 3. Điểm Nhấn Kết Quả từ Các Thí Nghiệm Mở Rộng (A $\to$ I)
 
-#### 1. Bài toán 4 góc — [`CornersProblem`](file:///d:/AIT2004_7/search/searchAgents.py#L274-L359) (Q5)
-- **Cách chọn không gian trạng thái:** Ta chỉ cần biết vị trí hiện tại của Pacman $(x, y)$ và tập hợp các góc nào trong 4 góc đã được đi qua. Do đó, mỗi trạng thái được biểu diễn bằng một tuple bất biến:
-  $$\text{state} = \big((x, y),\; \text{frozenset}(\text{visited\_corners})\big)$$
-- **Lý do dùng `frozenset`:** Các thuật toán tìm kiếm cần lưu `state` vào tập `visited = set()` hoặc làm khóa của `dict`. Kiểu `set` thông thường là mutable nên không băm được (`TypeError: unhashable type: 'set'`), trong khi `frozenset` vừa bất biến, vừa băm được, vừa hỗ trợ toán tử hợp `visited | frozenset((next_position,))` rất gọn nhẹ.
-- Kích thước không gian trạng thái giảm xuống chỉ còn tối đa $16 \times |\text{số ô trống}|$.
+Toàn bộ số liệu dưới đây được trích xuất trực tiếp từ `python experiments/summarize.py` trên 9 tệp CSV tại [`experiments/results/`](./experiments/results):
 
-#### 2. Heuristic cho bài toán 4 góc — [`cornersHeuristic`](file:///d:/AIT2004_7/search/searchAgents.py#L361-L398) (Q6)
-- **Ý tưởng:** Với tập các góc chưa đi qua `remaining` (tối đa $4$ góc $\implies$ tối đa $4! = 24$ thứ tự đi), ta duyệt tất cả các hoán vị $\pi \in \text{permutations}(\text{remaining})$ và tính tổng khoảng cách mê cung thực tế (`mazeDistance`) nối từ vị trí hiện tại của Pacman lần lượt qua các góc theo thứ tự $\pi$:
-  $$h(s) = \min_{\pi \in \text{Perm}(\text{remaining})} \left[ d_{\text{maze}}(\text{pos}, \pi_1) + \sum_{i=1}^{|\text{remaining}|-1} d_{\text{maze}}(\pi_i, \pi_{i+1}) \right]$$
-- **Kỹ thuật Cache (`problem.heuristicInfo`):** Vì khoảng cách mê cung giữa 2 tọa độ $(p_1, p_2)$ không đổi trong suốt ván chơi, ta lưu `problem.heuristicInfo[tuple(sorted((point1, point2)))] = mazeDistance(...)`. Nhờ vậy, BFS tính khoảng cách chỉ chạy vài lần ở các nút đầu tiên, sau đó mọi phép tra cứu đều là $O(1)$.
-- **Tính chất:** Đây là cận dưới chính xác tuyệt đối ($h(s) = h^*(s)$), vừa **admissible** vừa **consistent**.
-
-#### 3. Heuristic ăn toàn bộ thức ăn — [`foodHeuristic`](file:///d:/AIT2004_7/search/searchAgents.py#L462-L504) (Q7)
-- **Thách thức:** Khi số viên thức ăn $k$ lớn (ví dụ $k=15 \dots 30$), việc duyệt $k!$ hoán vị là bất khả thi.
-- **Công thức thiết kế:** Ta lấy **khoảng cách mê cung thật lớn nhất từ vị trí hiện tại của Pacman tới viên thức ăn xa nhất còn lại**:
-  $$h(\text{pos}, \text{FoodGrid}) = \max_{f \in \text{FoodGrid}} d_{\text{maze}}(\text{pos}, f)$$
-  kèm theo lưu cache từng cặp `tuple(sorted((position, food_position)))` trong `problem.heuristicInfo`.
-- **Tại sao vừa Admissible vừa Consistent?**
-  - *Admissible:* Để ăn hết mọi viên thức ăn còn lại, Pacman bắt buộc phải đi tới viên thức ăn xa nhất $f^*$. Chi phí đi từ vị trí hiện tại tới riêng viên $f^*$ đã là $d_{\text{maze}}(\text{pos}, f^*)$, nên tổng hành trình ăn hết tất cả các viên không bao giờ nhỏ hơn giá trị này.
-  - *Consistent:* Khi Pacman bước 1 bước từ $u$ sang $v$ (chi phí bước $= 1$), khoảng cách mê cung tới bất kỳ viên thức ăn $f$ nào giảm tối đa $1$ đơn vị: $d_{\text{maze}}(u, f) \le 1 + d_{\text{maze}}(v, f)$. Do đó $\max_f d_{\text{maze}}(u, f) \le 1 + \max_f d_{\text{maze}}(v, f)$.
-
-#### 4. Tìm kiếm tham lam viên gần nhất — [`ClosestDotSearchAgent`](file:///d:/AIT2004_7/search/searchAgents.py#L506-L570) (Q8)
-- Cài đặt [`AnyFoodSearchProblem.isGoalState`](file:///d:/AIT2004_7/search/searchAgents.py#L562-L569) kiểm tra xem ô hiện tại `(x, y)` có thức ăn hay không (`return self.food[x][y]`).
-- Hàm [`findPathToClosestDot`](file:///d:/AIT2004_7/search/searchAgents.py#L523-L534) gọi `search.breadthFirstSearch(AnyFoodSearchProblem(gameState))` để luôn tìm đường ngắn nhất tới viên thức ăn gần nhất ở mỗi chặng.
-
----
-
-## 3. Project 2: Multi-Agent Search — Tìm kiếm Đối kháng & Hàm Lượng giá (`multiagent/`)
-
-### 3.1. Quy ước Độ sâu (Depth / Ply) trong Cây Trò chơi Đa tác tử
-
-Trong [`multiagent/multiAgents.py`](file:///d:/AIT2004_7/multiagent/multiAgents.py), bàn cờ có `numAgents = gameState.getNumAgents()` tác tử:
-- `agentIndex == 0`: **Pacman** (tác tử `MAX`).
-- `agentIndex` từ `1` đến `numAgents - 1`: **Các Ghost** (tác tử `MIN` hoặc `CHANCE`).
-- Một đơn vị độ sâu (`depth`) được định nghĩa là **1 ply đầy đủ** (Pacman đi 1 bước và tất cả các Ghost lần lượt đi 1 bước). Do đó, cách chuyển lượt đệ quy chuẩn trong cả 3 thuật toán là:
-  ```python
-  nextAgent = (agentIndex + 1) % numAgents
-  nextDepth = depth + 1 if nextAgent == 0 else depth
-  ```
-  Đệ quy dừng khi `state.isWin() or state.isLose() or depth == self.depth`, trả về giá trị từ `self.evaluationFunction(state)`.
-
-### 3.2. Giải thích chi tiết từng Tác tử và Hàm Lượng giá
-
-1. **[`ReflexAgent.evaluationFunction`](file:///d:/AIT2004_7/multiagent/multiAgents.py#L55-L103) (Q1):**
-   - Đánh giá trạng thái kế tiếp `successorGameState = currentGameState.generatePacmanSuccessor(action)`.
-   - Cộng điểm thưởng tỷ lệ nghịch với khoảng cách Manhattan tới viên thức ăn gần nhất: `score += 10.0 / (minFoodDist + 1.0)`.
-   - Duyệt qua các Ghost:
-     - Nếu Ghost đang hoảng sợ (`ghostState.scaredTimer > 0`): thưởng điểm săn đuổi `score += 20.0 / (dist + 1.0)`.
-     - Nếu Ghost đang hoạt động bình thường: nếu `dist <= 1` trả về ngay `float('-inf')` để cấm đi vào ô chết; nếu ở xa hơn thì phạt nhẹ `score -= 2.0 / (dist + 1.0)`.
-   - Phạt hành động đứng yên `if action == Directions.STOP: score -= 10.0` để Pacman luôn chủ động di chuyển.
-
-2. **[`MinimaxAgent`](file:///d:/AIT2004_7/multiagent/multiAgents.py#L135-L206) (Q2):**
-   - Tại nút `agentIndex == 0` (Pacman), lấy $\max$ qua các hành động hợp lệ.
-   - Tại nút `agentIndex >= 1` (Ghost), lấy $\min$ qua các hành động hợp lệ (giả định mọi Ghost đều chơi tối ưu để ép điểm Pacman thấp nhất).
-   - Ở hàm gốc `getAction`, sử dụng điều kiện `if score > bestScore or bestAction is None:` để đảm bảo ngay cả khi mọi hướng đi đều dẫn đến thua bắt buộc (`score == -inf`), Pacman vẫn chọn một hành động hợp lệ đầu tiên thay vì trả về `None`.
-
-3. **[`AlphaBetaAgent`](file:///d:/AIT2004_7/multiagent/multiAgents.py#L208-L265) (Q3):**
-   - Truyền thêm hai tham số cận $(\alpha, \beta)$ vào hàm đệ quy `alphabeta(state, agentIndex, depth, alpha, beta)`:
-     - Tại nút **MAX** (`agentIndex == 0`): cập nhật `v = max(v, alphabeta(...))`. Nếu **`v > beta`**, cắt tỉa ngay (`return v`); ngược lại cập nhật `alpha = max(alpha, v)`.
-     - Tại nút **MIN** (`agentIndex >= 1`): cập nhật `v = min(v, alphabeta(...))`. Nếu **`v < alpha`**, cắt tỉa ngay (`return v`); ngược lại cập nhật `beta = min(beta, v)`.
-   - **Lưu ý quan trọng:** Phải dùng bất đẳng thức ngặt `v > beta` và `v < alpha` (không cắt khi `v == beta` hay `v == alpha`) theo đúng yêu cầu của CS188 để không bỏ sót các nút hòa điểm khi kiểm tra thứ tự mở rộng cây.
-
-4. **[`ExpectimaxAgent`](file:///d:/AIT2004_7/multiagent/multiAgents.py#L267-L320) (Q4):**
-   - Thay vì giả định Ghost luôn chọn nước đi tệ nhất cho Pacman (`min`), nút Ghost (`agentIndex >= 1`) tính **trung bình cộng (kỳ vọng toán học)** trên tất cả các hành động hợp lệ của Ghost:
-     ```python
-     totalValue = 0.0
-     for action in legalActions:
-         successor = state.generateSuccessor(agentIndex, action)
-         totalValue += expectimax(successor, nextAgent, nextDepth)
-     return totalValue / len(legalActions)
-     ```
-
-5. **Hàm lượng giá nâng cao — [`betterEvaluationFunction`](file:///d:/AIT2004_7/multiagent/multiAgents.py#L322-L370) (Q5):**
-   - Được thiết kế như một tổ hợp tuyến tính các đặc trưng phi tuyến của trạng thái `currentGameState`:
-     $$\text{Eval}(s) = \text{Score}(s) + \frac{10}{d_{\text{minFood}} + 1} - 4 N_{\text{food}} + \frac{5}{d_{\text{minCap}} + 1} - 20 N_{\text{cap}} + \sum_{g \in \text{Ghosts}} \phi(g)$$
-   - **Ý nghĩa của việc kết hợp lực hút khoảng cách và phạt số lượng còn lại:**
-     - Thành phần $\frac{10}{d_{\text{minFood}} + 1}$ đóng vai trò "la bàn" hướng Pacman về phía viên thức ăn gần nhất khi ở xa.
-     - Thành phần $-4 N_{\text{food}}$ và $-20 N_{\text{cap}}$ đảm bảo mỗi khi Pacman thực sự ăn 1 viên thức ăn hoặc 1 viên năng lượng (Capsule), giá trị hàm mục tiêu tăng vọt một lượng cố định ($+4$ hoặc $+20$ cộng với điểm nội tại của game), triệt tiêu hoàn toàn hiện tượng Pacman đứng ngập ngừng cạnh viên thức ăn cuối cùng của một cụm.
-     - Khi ăn được Capsule (`ghostState.scaredTimer > 0`), hệ số thưởng săn Ghost tăng mạnh lên $+50.0 / (dist + 1.0)$ để Pacman chủ động truy đuổi Ghost kiếm $+200$ điểm thưởng.
-
----
-
-## 4. Project 3: Reinforcement Learning — Quy hoạch động & Học tăng cường (`reinforcement/`)
-
-### 4.1. Quy hoạch động trên MDP (`reinforcement/valueIterationAgents.py`)
-
-1. **[`ValueIterationAgent`](file:///d:/AIT2004_7/reinforcement/valueIterationAgents.py#L34-L120) (Q1):**
-   - **Tính giá trị $Q(s, a)$ ([`computeQValueFromValues`](file:///d:/AIT2004_7/reinforcement/valueIterationAgents.py#L82-L92)):**
-     $$Q_k(s, a) = \sum_{s'} T(s, a, s') \big[ R(s, a, s') + \gamma V_k(s') \big]$$
-   - **Trích xuất hành động tối ưu ([`computeActionFromValues`](file:///d:/AIT2004_7/reinforcement/valueIterationAgents.py#L94-L110)):**
-     $$\pi_{k}(s) = \arg\max_{a \in A(s)} Q_k(s, a)$$
-     (trả về `None` nếu `mdp.isTerminal(state)` hoặc không có hành động hợp lệ).
-   - **Cập nhật đồng bộ theo lô ([`runValueIteration`](file:///d:/AIT2004_7/reinforcement/valueIterationAgents.py#L62-L73)):** Ở mỗi vòng lặp, khởi tạo một bảng `newValues = util.Counter()` mới hoàn toàn, tính $V_{k+1}(s) = \max_a Q_k(s,a)$ dựa trên `self.values` cũ, rồi cuối vòng lặp mới gán `self.values = newValues`.
-
-2. **[`PrioritizedSweepingValueIterationAgent`](file:///d:/AIT2004_7/reinforcement/valueIterationAgents.py#L122-L174) (Q4):**
-   - Thay vì quét mù quáng toàn bộ không gian trạng thái $S$ ở mỗi vòng lặp, thuật toán tập trung cập nhật các trạng thái có **sai số Bellman lớn nhất**:
-     1. **Lập danh sách tiền nhiệm (`predecessors`):** Tìm mọi trạng thái $p$ có thể đi tới $s$ với xác suất $T(p, a, s) > 0$.
-     2. **Đưa vào hàng đợi ưu tiên (`pq`):** Tính $\text{diff}(s) = |V(s) - \max_a Q(s, a)|$ cho mọi trạng thái không kết thúc và gọi `pq.update(state, -diff)` (dùng `-diff` vì `PriorityQueue` là min-heap).
-     3. **Vòng lặp cập nhật có chọn lọc:** Trong `self.iterations` bước, lấy trạng thái `state` ở đỉnh `pq`, cập nhật `self.values[state]`, sau đó chỉ tính lại `diff` cho các trạng thái tiền nhiệm `p in predecessors[state]`. Nếu `diff > self.theta` thì mới đẩy `p` vào `pq`.
-
-### 4.2. Tinh chỉnh tham số MDP (`reinforcement/analysis.py`)
-
-- **[`question2`](file:///d:/AIT2004_7/reinforcement/analysis.py#L22-L25):** Đặt `answerDiscount = 0.9, answerNoise = 0.0` để loại bỏ rủi ro trượt xuống vực phạt $-100$ trên cầu `BridgeGrid`.
-- **[`question3a` – `question3e`](file:///d:/AIT2004_7/reinforcement/analysis.py#L27-L60):** Sử dụng hai tham số điều khiển trực giao trên `DiscountGrid`:
-  - **Chọn đích gần ($+1$) hay đích xa ($+10$):** Điều khiển bằng hệ số chiết khấu $\gamma$ (`0.2` cho đích gần ở `3a, 3b`; `0.9` cho đích xa ở `3c, 3d`).
-  - **Chọn đường ngắn sát vực hay đường vòng an toàn:** Điều khiển bằng độ nhiễu `noise` (`0.0` để đi sát vực ở `3a, 3c`; `0.2` để đi đường vòng ở `3b, 3d`).
-  - **Tránh mọi ô kết thúc (`3e`):** Đặt `answerDiscount = 1.0, answerNoise = 0.0, answerLivingReward = 10.0` để phần thưởng sống sót mỗi bước lớn hơn việc kết thúc.
-- **[`question7`](file:///d:/AIT2004_7/reinforcement/analysis.py#L62-L63):** Trả về `'NOT POSSIBLE'` vì 50 tập huấn luyện là quá ít để Q-Learning vừa khám phá hết cây cầu dài vừa hội tụ chính sách tối ưu với xác suất $>99\%$.
-
-### 4.3. Học tăng cường không mô hình (`reinforcement/qlearningAgents.py`)
-
-1. **[`QLearningAgent`](file:///d:/AIT2004_7/reinforcement/qlearningAgents.py#L21-L127) (Q5, Q6):**
-   - Lưu giá trị $Q(s,a)$ trong bảng băm `self.qValues = util.Counter()`.
-   - Phá vỡ thế hòa ngẫu nhiên trong `computeActionFromQValues` bằng `random.choice(bestActions)`.
-   - Chọn hành động khám phá $\varepsilon$-greedy trong `getAction` bằng `util.flipCoin(self.epsilon)`.
-   - Cập nhật mẫu chuyển dịch $(s, a, s', r)$ trong `update`:
-     $$Q(s, a) \leftarrow (1 - \alpha) Q(s, a) + \alpha \big[ r + \gamma \max_{a'} Q(s', a') \big]$$
-
-2. **[`ApproximateQAgent`](file:///d:/AIT2004_7/reinforcement/qlearningAgents.py#L161-L205) (Q8):**
-   - Biểu diễn hàm giá trị bằng tích vô hướng giữa vector trọng số `self.weights` và vector đặc trưng `features = self.featExtractor.getFeatures(state, action)`:
-     $$Q(s, a) = \sum_{i} w_i f_i(s, a)$$
-   - Cập nhật trọng số theo quy tắc TD-error:
-     $$\delta = \big(r + \gamma \max_{a'} Q(s', a')\big) - Q(s, a), \qquad w_i \leftarrow w_i + \alpha \cdot \delta \cdot f_i(s, a)$$
-
----
-
-## 5. Project 5: Machine Learning — Mạng Nơ-ron, RNN, Tích chập & Self-Attention (`machinelearning/`)
-
-Toàn bộ các mô hình học sâu trong [`machinelearning/models.py`](file:///d:/AIT2004_7/machinelearning/models.py), hàm mất mát trong [`machinelearning/losses.py`](file:///d:/AIT2004_7/machinelearning/losses.py) và quy trình huấn luyện trong [`machinelearning/train.py`](file:///d:/AIT2004_7/machinelearning/train.py) được thiết kế chỉ sử dụng đúng các hàm PyTorch được phép import của đề bài:
-
-| Câu | Mô hình (`models.py`) | Kiến trúc chi tiết | Hàm Loss (`losses.py`) | Cấu hình Huấn luyện (`train.py`) |
-| :--- | :--- | :--- | :--- | :--- |
-| **Q1** | [`PerceptronModel`](file:///d:/AIT2004_7/machinelearning/models.py#L23-L78) | Trọng số $w \in \mathbb{R}^{1 \times D}$, dự đoán $\text{sign}(x \cdot w)$ | Cập nhật trực tiếp $w \leftarrow w + yx$ | `batch_size=1`, lặp tới khi không còn mẫu sai |
-| **Q2** | [`RegressionModel`](file:///d:/AIT2004_7/machinelearning/models.py#L81-L109) | MLP: $1 \to 128 \text{ (ReLU)} \to 128 \text{ (ReLU)} \to 1$ | [`regression_loss`](file:///d:/AIT2004_7/machinelearning/losses.py#L3-L14) (`mse_loss`) | `Adam(lr=0.01)`, `batch_size=32`, dừng khi loss $< 0.002$ |
-| **Q3** | [`DigitClassificationModel`](file:///d:/AIT2004_7/machinelearning/models.py#L112-L156) | MLP: $784 \to 256 \text{ (ReLU)} \to 128 \text{ (ReLU)} \to 10$ | [`digitclassifier_loss`](file:///d:/AIT2004_7/machinelearning/losses.py#L18-L32) (`cross_entropy`) | `Adam(lr=0.001)`, `batch_size=128`, dừng khi val acc $\ge 97.8\%$ |
-| **Q4** | [`LanguageIDModel`](file:///d:/AIT2004_7/machinelearning/models.py#L159-L218) | RNN: $h_t = \text{ReLU}(W_x x_t + W_h h_{t-1})$, hidden $256 \to 5$ | [`languageid_loss`](file:///d:/AIT2004_7/machinelearning/losses.py#L35-L50) (`cross_entropy`) | `Adam(lr=0.001)`, `batch_size=64`, `movedim(x,1,0)`, dừng khi val acc $\ge 85\%$ |
-| **Q5** | [`Convolve`](file:///d:/AIT2004_7/machinelearning/models.py#L222-L249) & [`DigitConvolutionalModel`](file:///d:/AIT2004_7/machinelearning/models.py#L252-L287) | Tích chập $3\times 3$ trượt lát cắt $\to 676 \to 128 \text{ (ReLU)} \to 10$ | [`digitconvolution_Loss`](file:///d:/AIT2004_7/machinelearning/losses.py#L53-L67) (`cross_entropy`) | `Adam(lr=0.005)`, `batch_size=32`, dừng khi val acc $\ge 88\%$ |
-| **Q6** | [`Attention`](file:///d:/AIT2004_7/machinelearning/models.py#L290-L332) | Causal Scaled Dot-Product Self-Attention $\text{ softmax}\big(\frac{QK^T}{\sqrt{d_k}} + M_{\text{mask}}\big)V$ | Cross-Entropy (GPT-2 LM) | Kiểm thử trực tiếp và huấn luyện mô hình ngôn ngữ |
-
-#### Hai điểm nhấn kỹ thuật quan trọng trong `models.py`:
-1. **Vector hóa phép tích chập 2D trong [`Convolve`](file:///d:/AIT2004_7/machinelearning/models.py#L222-L249):**
-   Thay vì dùng 2 vòng lặp duyệt qua từng tọa độ điểm ảnh $(y, x)$ của ma trận đầu ra (tốn $O(H \cdot W)$ lời gọi hàm Python), ta chỉ lặp qua kích thước rất nhỏ của bộ lọc $(i, j) \in [0, k_h) \times [0, k_w)$ và cộng dồn trực tiếp các lát cắt tensor:
-   ```python
-   out_h = input_tensor_dimensions[0] - weight_dimensions[0] + 1
-   out_w = input_tensor_dimensions[1] - weight_dimensions[1] + 1
-   Output_Tensor = zeros((out_h, out_w))
-   for i in range(weight_dimensions[0]):
-       for j in range(weight_dimensions[1]):
-           Output_Tensor = Output_Tensor + input[i:i + out_h, j:j + out_w] * weight[i, j]
-   ```
-   Cách làm này giảm số phép toán cấp Python từ hàng chục nghìn xuống chỉ còn $k_h \times k_w = 9$ phép toán tensor, giúp huấn luyện CNN nhanh gấp hàng nghìn lần.
-2. **Cơ chế Causal Masking trong [`Attention.forward`](file:///d:/AIT2004_7/machinelearning/models.py#L311-L332):**
-   ```python
-   q = self.q_layer(input)
-   k = self.k_layer(input)
-   v = self.v_layer(input)
-   M = matmul(q, movedim(k, 1, 2)) / (self.layer_size ** 0.5)
-   M = M.masked_fill(self.mask[:, :, :T, :T] == 0, float('-inf'))[0]
-   return matmul(softmax(M, dim=-1), v)
-   ```
-   Phép `movedim(k, 1, 2)` chuyển vị ma trận Key từ $(B, T, C)$ sang $(B, C, T)$ để nhân ma trận `matmul(q, ...)` tạo ra tensor điểm chú ý $(B, T, T)$. Sau khi điền $-\infty$ vào nửa trên đường chéo chính bằng `masked_fill`, hàm `softmax(M, dim=-1)` biến các vị trí tương lai thành trọng số $0$.
-
----
-
-## 6. Xây dựng Kịch bản Ma trận lớn & Cơ chế Đo lường (`experiments/`)
-
-Để đánh giá sâu sự hiệu quả và giới hạn của từng kỹ thuật khi mở rộng quy mô bài toán, thư mục [`experiments/`](file:///d:/AIT2004_7/experiments/scenario.py) thiết lập **4 môi trường ma trận cỡ lớn**:
-
-1. **Mê cung đa đường đi (Braided Maze) từ $31 \times 31$ đến $151 \times 151$ kèm Địa hình Đầm lầy ([`generate_braided_maze`](file:///d:/AIT2004_7/experiments/scenario.py#L23-L99)):**
-   - Sinh mê cung bằng Randomized DFS kết hợp đục mở thêm $\beta = 25\%$ tường chắn nội bộ để tạo ra hàng nghìn đường đi thay thế có độ dài khác nhau giữa góc $(1,1)$ và $(N-2, N-2)$.
-   - Phủ ngẫu nhiên $30\%$ ô đầm lầy (`~`) có chi phí đi qua $c = 5$ (trong khi đường thường $c = 1$) thông qua lớp [`SwampPositionSearchProblem`](file:///d:/AIT2004_7/experiments/exp_search.py#L31-L65) để kiểm tra sự khác biệt giữa tìm kiếm theo số bước (`BFS`) và tìm kiếm theo chi phí (`UCS`, `A*`).
-2. **Mê cung Đa mục tiêu ($31 \times 31$ với $k \in \{3, 5, 7, 9, 11\}$ viên thức ăn — [`generate_food_maze`](file:///d:/AIT2004_7/experiments/scenario.py#L102-L128)):**
-   - Tăng dần số lượng mục tiêu $k$ để khảo sát sự bùng nổ tổ hợp $O(V \cdot 2^k)$ của không gian trạng thái `FoodSearchProblem`.
-3. **Đấu trường đối kháng cỡ lớn $41 \times 21$ với 3 Ghost ([`arena_41x21_3ghosts.lay`](file:///d:/AIT2004_7/experiments/layouts/arena_41x21_3ghosts.lay)):**
-   - Mở rộng diện tích bàn cờ gấp ~2.3 lần `mediumClassic` với 3 Ghost săn đuổi (`DirectionalGhost` / `RandomGhost`) và 4 viên Capsule ở 4 góc.
-4. **Mạng lưới MDP ngẫu nhiên từ $5 \times 5$ đến $30 \times 30$ ([`generate_mdp_grid`](file:///d:/AIT2004_7/experiments/scenario.py#L205-L246)):**
-   - Lưới $30 \times 30$ với $\sim 790$ trạng thái sống, xác suất trượt nhiễu $0.2$, nhiều bẫy phạt $-10$ và đích thưởng $+10, +5, +2$.
-
----
-
-## 7. Độ đo Đánh giá (Metrics) & Tổng hợp Kết quả Thực nghiệm
-
-> Toàn bộ bảng số liệu đầy đủ và phân tích chi tiết được trình bày trong [`experiments/REPORT.md`](file:///d:/AIT2004_7/experiments/REPORT.md). Dưới đây là tóm tắt các độ đo cốt lõi và kết quả định lượng nổi bật:
-
-### 7.1. Bảng định nghĩa các Độ đo (Evaluation Metrics)
-
-| Miền bài toán | Độ đo (Metric) | Công thức | Ý nghĩa |
+| Thí nghiệm | Tệp Dữ liệu CSV | Quy mô Mở rộng | Kết quả Định lượng Chính xác (Khớp 100% CSV) |
 | :--- | :--- | :--- | :--- |
-| **Search** | **Node Expansion Ratio** ($\eta_{\text{exp}}$) | $\frac{N_{\text{expanded}}}{|S_{\text{free}}|}$ | Tỷ lệ diện tích mê cung bị thuật toán mở rộng. |
-| **Search** | **Suboptimality Ratio** ($\rho_{\text{cost}}$) | $\frac{C(\pi)}{C(\pi^*)}$ | Tỷ lệ chi phí đường đi tìm được so với nghiệm tối ưu $\pi^*$ ($\rho_{\text{cost}} = 1.00$ là tối ưu). |
-| **Multi-Agent** | **Pruning Efficiency** ($\eta_{\text{prune}}$) | $1 - \frac{\text{Calls}_{\alpha\beta}}{\text{Calls}_{\text{Minimax}}}$ | Tỷ lệ nút trên cây trò chơi được cắt tỉa bởi Alpha-Beta. |
-| **Multi-Agent** | **Speedup & Exact Match** | $\frac{T_{\text{Minimax}}}{T_{\alpha\beta}}$, $\mathbb{I}(a_{\alpha\beta} = a_{\text{Minimax}})$ | Hệ số tăng tốc thời gian suy nghĩ và tỷ lệ giữ nguyên nước đi tối ưu. |
-| **Reinforcement** | **Backup Savings Ratio** | $\frac{\text{Backups}_{\text{Standard VI}}}{\text{Backups}_{\text{PrioritizedSweeping}}}$ | Tỷ lệ tiết kiệm số phép cập nhật Bellman để đạt $\max_s |V(s)-V^*(s)| < 10^{-3}$. |
-| **Machine Learning** | **Vectorization Speedup** ($S_{\text{conv}}$) | $\frac{T_{\text{naive}}(H,W,k)}{T_{\text{vectorized}}(H,W,k)}$ | Hệ số tăng tốc của tích chập trượt lát cắt tensor so với vòng lặp điểm ảnh. |
+| **Exp A: Search Scaling & Đầm lầy** | [`search_scaling.csv`](./experiments/results/search_scaling.csv) (282 dòng) | Mê cung $31^2 \to 151^2$, `MegaCity 31x21`, 25% đầm lầy (`~`, cost 5) | • Ở $151\times 151$ (đầm lầy): `DFS` đội chi phí lên **$5.89\times$** ($3{,}189.6$ vs $548.0$), `BFS` lệch **$1.24\times$** ($688.0$ vs $548.0$, và lệch **$1.56\times$** trên `MegaCity-Route`: $107.3$ vs $68.7$).<br>• `DFS` có đỉnh hàng đợi `peak_frontier` lớn hơn `BFS` trong mê cung ($258.2$ vs $70.4$ ở $151\times 151$, tỷ lệ $\sim N^{1.73}$ vs $\sim N^{1.01}$).<br>• `WA*-Manhattan (w=2.0)` giảm bậc mở rộng xuống gần tuyến tính ($\sim N^{1.01}$), chỉ mở rộng **$946.2 \pm 264.8$ nút ($8.0\%$ mê cung)** ở $151\times 151$ trong $6.69\text{ ms}$. |
+| **Exp B: Multi-Food & MST** | [`search_food.csv`](./experiments/results/search_food.csv) (90 dòng) | $31\times 31$, $k \in \{3, 5, 7, 9, 11\}$ thức ăn ($|S| = |\mathcal{V}| \cdot 2^k$) | • Ở $k=7$: `A* + foodHeuristic` mở rộng **$7{,}084.7 \pm 5{,}908.6$ nút** so với **$29{,}223.3 \pm 5{,}653.3$ nút** của `UCS`. Tiền tính toán BFS (`precomputed`, mất $4\text{–}10\text{ ms}$) giúp giảm thời gian ở $k=3$ từ $2{,}922.6\text{ ms}$ xuống **$679.4\text{ ms}$** (nhanh hơn `UCS` $1{,}945.0\text{ ms}$).<br>• `A* + foodHeuristic (precomputed)` giải được **`1/3` mẫu ở $k=11$** ($29{,}478$ nút ở seed 1; trung bình 3 seeds là $209{,}826.0$ nút).<br>• **`A* + MSTHeuristic (precomputed)`** (Cây khung nhỏ nhất Prim) giải **100% (`3/3`) mẫu tới $k=11$** với chi phí tối ưu $1.00\times$ ($178.3$), chỉ mở rộng **$694.7 \pm 481.6$ nút** trong **$3{,}015.4\text{ ms}$**! `ClosestDot` mở rộng $1{,}122.0$ nút ($403.2\text{ ms}$, chi phí $1.16\times$). |
+| **Exp C: Đấu trường 3 Ghosts & `mazeEval`** | [`multiagent_games.csv`](./experiments/results/multiagent_games.csv) (288 dòng) | `mediumClassic`, `MegaCity 31x21` (3 ma), `Arena 41x21` (3 ma, gấp $3.91\times$ `mediumClassic`), 8 seeds/ô | • Thay khoảng cách Manhattan + `±inf` (`betterEval`) bằng khoảng cách mê cung BFS có cache + giá trị hữu hạn $\pm 10{,}000$ (`mazeEval`) giúp xóa bỏ hoàn toàn lỗi kẹt tường 600 nước: trên `MegaCity 31x21` (vs `RandomGhost`), tỷ lệ thắng tăng từ **$0.0\%$ (Timeout 8/8) lên $87.5\%$ (`7/8`, CI `[52.9, 97.8]`)**, dọn **$99.7\%$ thức ăn**, điểm tăng từ $-47.5$ lên **$1{,}693.0 \pm 361.2$** (`AlphaBeta`) và **$1{,}757.0 \pm 309.6$** (`Expectimax`).<br>• Trước 3 `DirectionalGhost` trên `MegaCity`, `Expectimax-d2 (mazeEval)` đạt **$25.0\%$ thắng**, điểm **$1{,}045.8 \pm 858.5$** (so với $-84.0$ của `betterEval`). |
+| **Exp D: Cắt tỉa Alpha-Beta & Move Ordering** | [`multiagent_pruning.csv`](./experiments/results/multiagent_pruning.csv) (70 dòng) | Đo tuần tự độc lập (Median 5 lần chạy), $d=2, 3$ | • Khớp quyết định nước đi **$100.0\%$** với `Minimax` trên toàn bộ 70 trạng thái.<br>• Ở $d=3$ (`mediumClassic`, 9 ply): `Minimax` duyệt $952.2$ nút $\to$ `AlphaBeta` duyệt **$375.0$ nút** (cắt **$44.8\%$**, tăng tốc **$2.98\times$**) $\to$ `OrderedAlphaBeta` duyệt **$323.4$ nút** (cắt **$56.8\%$**). |
+| **Exp E: Hội tụ MDP (Backups vs Q-Evals)** | [`rl_mdp_summary.csv`](./experiments/results/rl_mdp_summary.csv) (26 dòng), [`rl_mdp_curves.csv`](./experiments/results/rl_mdp_curves.csv) | Gridworld $5\times 5 \to 40\times 40$ ($22 \to 1{,}319$ trạng thái) | • `PrioritizedSweeping` giảm **$3.46\times \to 4.64\times$** số lần cập nhật trạng thái (`backups_to_tol`): ở $30\times 30$ ($745.0$ trạng thái) giảm từ $50{,}166.0$ xuống **$11{,}900.0$ backups** ($16.0$ vòng quét vs $67.3$ vòng); ở $40\times 40$ ($1{,}318.7$ trạng thái) giảm từ $98{,}464.3$ xuống **$24{,}950.0$ backups**.<br>• Tuy nhiên, do mỗi lần `pop` phải tính lại $Q(p,a)$ cho các tiền nhiệm, tổng số lần tính $Q$ (`q_evals_to_tol`) của PS cao hơn VI khoảng $1.05\times\text{–}1.48\times$ ($224{,}357$ vs $195{,}008$ ở $30\times 30$). |
+| **Exp F: Q-Learning & Zero-Shot Transfer** | [`rl_pacman.csv`](./experiments/results/rl_pacman.csv) (144 dòng) | `smallGrid`, `mediumClassic` $\to$ Chuyển giao Zero-Shot sang `MegaCity 31x21` (90 ván test/ô) | • Đối chứng `ApproxQ (IdentityExtractor)` trùng khít với `Tabular Q-Learning` (cùng **$0.0\%$ thắng** trên `mediumClassic` ở $N=1000$ với $54{,}762$ và $178{,}504$ tham số), chứng minh khả năng khái quát hóa đến từ đặc trưng.<br>• Trên `mediumClassic`, `MegaCityExtractor` (7 trọng số) đạt điểm cao nhất **$1{,}794.6 \pm 12.3$** ($91.1\%$ thắng ở $N=500$).<br>• Khi chuyển giao **Zero-Shot** sang `MegaCity 31x21` (3 Ghosts), `SimpleExtractor` (4 trọng số) thắng ngay **$83.3 \pm 5.8\%$ (`CI [74.3, 89.6]`, điểm $1{,}060.8$, dọn $94.2\%$ thức ăn)** mà không cần huấn luyện lại! |
+| **Exp G: Tích chập 2D (`Convolve` vs `F.conv2d`)** | [`ml_convolve_scaling.csv`](./experiments/results/ml_convolve_scaling.csv) (12 dòng) | Ma trận $28^2 \to 256^2$, Kernel $3\times 3, 5\times 5, 7\times 7$ (Đơn luồng, Median 15 lần) | • Ở $128\times 128$: `Vectorized Q5` đạt $0.351\text{ ms}$ ($k=3$, tăng tốc **$2{,}656.1\times$**), $0.889\text{ ms}$ ($k=5$, **$985.4\times$**), $1.781\text{ ms}$ ($k=7$, **$435.4\times$**).<br>• Ở $256\times 256$ ($k=3$): `Vectorized Q5` đạt **$0.590 \pm 0.025\text{ ms}$** (tăng tốc **$6{,}106.4\times$** so với `Naive` $3{,}601.53\text{ ms}$ và **chỉ chậm hơn C++ `F.conv2d` $1.4\times$** ở $0.421\text{ ms}$). Sai số tuyệt đối $\le 9.5\times 10^{-6}$. |
+| **Exp H & H2: Self-Attention & Char-LM** | [`ml_attention_scaling.csv`](./experiments/results/ml_attention_scaling.csv), [`ml_char_lm.csv`](./experiments/results/ml_char_lm.csv) | $T = 16 \to 512$, $C \in \{64, 128, 256\}$, $B=8$ + Huấn luyện Char-LM | • Khi $T$ tăng từ $64 \to 512$ ($C=64$), thông lượng giảm từ **$217{,}428 \to 70{,}381\text{ tok/s}$** do chi phí $O(T^2)$ ($\text{Time} \sim T^{1.58}$); tổng bộ nhớ kích hoạt Autograd thực tế tăng từ $152.0\text{ KB}$ ($T=16$) lên **$28{,}672.0\text{ KB}$** ($C=64$) và **$40{,}960.0\text{ KB}$** ($C=256$) ở $T=512$.<br>• Trong bài toán Character-LM (`vocab=90`), `Attention-CharLM (Q6)` giảm Validation Perplexity xuống **$8.89$** (`acc = 44.7%`), vượt qua `Bigram-MLP` (**`PPL = 9.72`**, `acc = 40.6%`). |
+| **Exp I: Học Bắt chước trên Mega-City** | [`ml_imitation.csv`](./experiments/results/ml_imitation.csv) (3 dòng) | Học bắt chước `AlphaBeta-d2 (mazeEval)` bằng `Imitation-MLP` & `Imitation-CNN` (`Convolve`) | • Khớp hành động chuyên gia đạt **$86.4\%$** (`MLP`) và **$85.5\%$** (`CNN`), tăng tốc suy luận gấp **$20.7\times$** ($0.751\text{ ms/nước}$) và **$11.8\times$** ($1.317\text{ ms/nước}$) so với Giáo viên Alpha-Beta ($15.545\text{ ms/nước}$); `Imitation-MLP` dọn $27.6\%$ thức ăn trước 3 `DirectionalGhosts` (vượt `Reflex` $22.1\%$ và `AlphaBeta-scoreEval` $23.0\%$). |
 
 ---
 
-### 7.2. Kết quả chính qua 8 Thực nghiệm (A – H)
+## 4. Hướng Dẫn Chạy Nhanh (Quickstart)
 
-1. **Thực nghiệm A — Tìm kiếm đường đi trên mê cung $31 \times 31 \to 151 \times 151$ ([`exp_search.py`](file:///d:/AIT2004_7/experiments/exp_search.py)):**
-   - Trên mê cung $151 \times 151$ chi phí đồng nhất, `DFS` trả về đường đi **dài gấp $6.08\times$ tối ưu** ($1{,}828.4$ vs $300.8$), trong khi `A*-Manhattan` đạt tối ưu tuyệt đối ($1.00\times$) và giảm tỷ lệ nút mở rộng từ $89.9\%$ (`UCS`) xuống **$64.6\%$**.
-   - Khi có **địa hình đầm lầy ($c=5$)** trên mê cung $151 \times 151$, `BFS` mất tính tối ưu (**độ lệch $\rho_{\text{cost}} = 1.23\times$**, chi phí $531.6$ vs $430.8$) vì đi xuyên qua đầm lầy để giảm số bước, còn `UCS` và `A*-Manhattan` vòng tránh đầm lầy và giữ vững $\rho_{\text{cost}} = 1.00\times$.
-
-2. **Thực nghiệm B — Bùng nổ tổ hợp bài toán Multi-Food ($31 \times 31, k=3 \dots 11$):**
-   - `UCS` bị **Timeout ($>300{,}000$ nút)** ngay khi $k \ge 9$.
-   - `A* + foodHeuristic` giảm **75.5% số nút duyệt** ở $k=7$ ($1{,}137$ vs $4{,}644$ nút) và giải thành công $100\%$ tới $k=11$ ($58{,}959$ nút).
-   - `ClosestDotSearchAgent` (tham lam BFS) giải $k=11$ chỉ trong **$0.004\text{ s}$** ($353$ nút, nhanh hơn `A*` gần $900\times$) với chi phí chỉ cao hơn tối ưu **$10\%$** ($\rho_{\text{cost}} = 1.10\times$).
-
-3. **Thực nghiệm C & D — Cắt tỉa Alpha-Beta & Đấu trường đối kháng $41 \times 21$ (3 Ghosts) ([`exp_multiagent.py`](file:///d:/AIT2004_7/experiments/exp_multiagent.py)):**
-   - `AlphaBeta` khớp quyết định với `Minimax` **100.0%** trên mọi độ sâu, đồng thời cắt bỏ **38.0% số nút** ở độ sâu $d=3$ (tăng tốc **$2.08\times$**) và cắt **23.5% số nút** trên `Arena 41x21` (3 Ghost, tăng tốc **$1.58\times$**).
-   - Trên đấu trường lớn `Arena 41x21` với 3 `DirectionalGhost` hung hãn, **`Expectimax-d2 + betterEval`** đạt điểm cao nhất (**$+551.4$**, dọn **$38.8\%$** thức ăn), vượt xa `AlphaBeta-d2` (**$-5.4$**, $22.3\%$ thức ăn) do `AlphaBeta` quá bi quan trước 3 Ghost.
-
-4. **Thực nghiệm E & F — Hội tụ MDP $30 \times 30$ & Khái quát hóa Q-Learning ([`exp_rl.py`](file:///d:/AIT2004_7/experiments/exp_rl.py)):**
-   - Trên MDP $30 \times 30$ ($786$ trạng thái), `Prioritized Sweeping` chỉ cần **$11{,}900$ phép cập nhật Bellman** để hội tụ ($\varepsilon < 10^{-3}$) so với **$50{,}166$ phép cập nhật** của `Standard VI` (**tiết kiệm $4.2\times$**).
-   - Trên `mediumClassic` ($\sim 10^{30}$ trạng thái), `Tabular Q-Learning` học $182{,}412$ trạng thái sau $1{,}000$ ván vẫn đạt **Win Rate $0.0\%$** ($-401.0$ điểm), trong khi **`Approximate Q-Learning`** với đúng **4 trọng số đặc trưng** đạt **Win Rate $92.5\%$** ($+1{,}241.2$ điểm) chỉ sau **50 ván huấn luyện** (và đạt **$95.0\%$** ở 200 ván).
-
-5. **Thực nghiệm G & H — Tăng tốc Vector hóa Convolve & Bậc hai Self-Attention ([`exp_ml.py`](file:///d:/AIT2004_7/experiments/exp_ml.py)):**
-   - Cài đặt vector hóa `models.Convolve` đạt tốc độ **$0.90\text{ ms}$** so với **$2{,}078.31\text{ ms}$** của vòng lặp pixel trên ma trận $128 \times 128$ ($k=5$), tức **tăng tốc $2{,}313.8\times$** với sai số số học $< 10^{-6}$.
-   - Khi tăng chiều dài chuỗi $T$ lên $32\times$ ($16 \to 512$), bộ nhớ ma trận chú ý $(B, T, T)$ trong `models.Attention` tăng đúng **$1{,}024\times$** ($8\text{ KB} \to 8{,}192\text{ KB}$), minh họa trực quan nút thắt cổ chai bậc hai $O(T^2)$ của Transformer.
-
----
-
-## 8. Hướng dẫn chạy Kiểm thử & Tái lập Thực nghiệm
-
-### 8.1. Chạy Autograder kiểm tra 4 Project
+### 4.1. Chạy Chấm điểm Tự động 4 Project Gốc
 ```powershell
-# Project 1: Search (26/25)
-cd d:\AIT2004_7\search; python autograder.py --no-graphics
-
-# Project 2: Multi-Agent Search (25/25)
-cd d:\AIT2004_7\multiagent; python autograder.py --no-graphics
-
-# Project 3: Reinforcement Learning (26/25)
-cd d:\AIT2004_7\reinforcement; python autograder.py --no-graphics
-
-# Project 5: Machine Learning (25/25)
-cd d:\AIT2004_7\machinelearning; python autograder.py --no-graphics
+cd D:\AIT2004_7\search;          python autograder.py --no-graphics
+cd D:\AIT2004_7\multiagent;      python autograder.py --no-graphics
+cd D:\AIT2004_7\reinforcement;   python autograder.py --no-graphics
+cd D:\AIT2004_7\machinelearning; python autograder.py
 ```
 
-### 8.2. Chạy lại toàn bộ Kịch bản Ma trận lớn & Xuất báo cáo, Biểu đồ
+### 4.2. Chạy Xem Đồ họa Trực quan (GUI Demo)
+> **Lưu ý:** Cần `cd` vào đúng thư mục của từng Project trước khi chạy `pacman.py` để trình nạp tác tử `loadAgent` tìm thấy tệp `*Agents.py`.
+
 ```powershell
-cd d:\AIT2004_7
+# Project 1: Xem A* tìm đường trên mê cung lớn 61x61
+cd D:\AIT2004_7\search
+python pacman.py -l ../experiments/layouts/maze_61x61.lay -p SearchAgent -a fn=astar,heuristic=manhattanHeuristic --frameTime 0.01 --zoom 0.7
+
+# Project 2: Xem AlphaBeta / Expectimax thi đấu với 3 Ghosts trên Đô thị Mega-City 31x21
+cd D:\AIT2004_7\multiagent
+python pacman.py -p ExpectimaxAgent -a evalFn=better,depth=2 -l ../experiments/layouts/megacity_31x21.lay -g RandomGhost -k 3 --frameTime 0.03
+
+# Project 3: Xem Approximate Q-Learning học 50 ván và thi đấu trên Đô thị Mega-City 31x21
+cd D:\AIT2004_7\reinforcement
+python pacman.py -p ApproximateQAgent -a extractor=SimpleExtractor -x 50 -n 53 -l ../experiments/layouts/megacity_31x21.lay -k 3
+```
+
+### 4.3. Tái lập Toàn bộ Dữ liệu CSV & Biểu đồ Mở rộng
+```powershell
+cd D:\AIT2004_7
 python experiments/scenario.py
 python experiments/exp_search.py
 python experiments/exp_multiagent.py
@@ -330,7 +85,3 @@ python experiments/exp_ml.py
 python experiments/summarize.py
 python experiments/plot_all_figures.py
 ```
-
-- Toàn bộ hình ảnh thực nghiệm trực quan: [`experiments/figures/`](file:///d:/AIT2004_7/experiments/figures/)
-- Xem báo cáo phân tích số liệu đầy đủ tại: [`experiments/REPORT.md`](file:///d:/AIT2004_7/experiments/REPORT.md)
-- Xem hướng dẫn giải thích chuyên sâu từng đoạn code tại: [`experiments/EXPLANATION_GUIDE.md`](file:///d:/AIT2004_7/experiments/EXPLANATION_GUIDE.md)

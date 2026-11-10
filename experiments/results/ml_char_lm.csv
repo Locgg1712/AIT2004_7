@@ -1,0 +1,9 @@
+model,epoch,vocab_size,block_size,train_loss,val_loss,val_perplexity,val_acc
+Attention-CharLM (Q6),1,92,32,3.2988,2.7331,15.38,0.3502
+Attention-CharLM (Q6),4,92,32,2.4381,2.267,9.65,0.4082
+Attention-CharLM (Q6),8,92,32,2.1618,2.198,9.01,0.4313
+Attention-CharLM (Q6),12,92,32,1.9496,2.1852,8.89,0.4473
+Bigram-MLP (No Attention),1,92,32,3.2153,2.5514,12.82,0.374
+Bigram-MLP (No Attention),4,92,32,2.4906,2.3024,10.0,0.3957
+Bigram-MLP (No Attention),8,92,32,2.4348,2.2756,9.73,0.4027
+Bigram-MLP (No Attention),12,92,32,2.4176,2.274,9.72,0.4057

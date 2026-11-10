@@ -1,81 +1,289 @@
-map,agent,ghost,seed,outcome,win,score,moves,food_cleared,ms_per_move,p95_ms,max_ms,nodes_per_move,game_seconds
-"Arena 41x21, 3 ma (moi)",AlphaBeta-d2 (betterEval),Directional,0,lose,0,281.0,279,0.4095,87.474,201.004,396.835,105.2,26.95
-"Arena 41x21, 3 ma (moi)",AlphaBeta-d2 (betterEval),Directional,1,lose,0,443.0,247,0.3762,125.434,330.578,749.821,105.0,34.17
-"Arena 41x21, 3 ma (moi)",AlphaBeta-d2 (betterEval),Directional,2,lose,0,-218.0,108,0.0905,98.218,177.042,345.708,85.5,12.01
-"Arena 41x21, 3 ma (moi)",AlphaBeta-d2 (betterEval),Directional,3,lose,0,-97.0,117,0.1524,105.114,278.014,673.049,106.6,13.4
-"Arena 41x21, 3 ma (moi)",AlphaBeta-d2 (betterEval),Directional,4,lose,0,-436.0,116,0.0857,112.398,209.008,320.731,96.4,14.52
-"Arena 41x21, 3 ma (moi)",AlphaBeta-d2 (betterEval),Random,0,timeout,0,300.0,600,0.3333,114.093,248.301,760.203,106.0,75.17
-"Arena 41x21, 3 ma (moi)",AlphaBeta-d2 (betterEval),Random,1,lose,0,-303.0,313,0.1476,114.838,277.023,817.808,142.3,38.55
-"Arena 41x21, 3 ma (moi)",AlphaBeta-d2 (betterEval),Random,2,timeout,0,110.0,600,0.3381,100.22,196.701,365.556,117.3,65.53
-"Arena 41x21, 3 ma (moi)",AlphaBeta-d2 (betterEval),Random,3,timeout,0,1140.0,600,0.5429,119.242,257.99,1029.69,110.3,78.29
-"Arena 41x21, 3 ma (moi)",AlphaBeta-d2 (betterEval),Random,4,timeout,0,-50.0,600,0.2619,156.68,358.506,841.768,129.2,101.21
-"Arena 41x21, 3 ma (moi)",AlphaBeta-d2 (scoreEval),Directional,0,lose,0,-437.0,27,0.0429,142.236,254.959,368.039,106.5,4.26
-"Arena 41x21, 3 ma (moi)",AlphaBeta-d2 (scoreEval),Directional,1,lose,0,-423.0,33,0.0524,123.362,298.7,386.9,119.5,4.56
-"Arena 41x21, 3 ma (moi)",AlphaBeta-d2 (scoreEval),Directional,2,lose,0,722.0,388,0.481,80.089,188.501,366.118,90.5,35.75
-"Arena 41x21, 3 ma (moi)",AlphaBeta-d2 (scoreEval),Directional,3,lose,0,-353.0,93,0.1143,104.366,256.71,343.159,114.8,11.0
-"Arena 41x21, 3 ma (moi)",AlphaBeta-d2 (scoreEval),Directional,4,lose,0,64.0,266,0.3952,83.188,211.536,560.07,100.6,24.86
-"Arena 41x21, 3 ma (moi)",AlphaBeta-d2 (scoreEval),Random,0,timeout,0,-390.0,600,0.1,112.004,282.364,527.799,115.5,74.42
-"Arena 41x21, 3 ma (moi)",AlphaBeta-d2 (scoreEval),Random,1,timeout,0,240.0,600,0.2095,104.256,247.432,510.039,132.6,68.19
-"Arena 41x21, 3 ma (moi)",AlphaBeta-d2 (scoreEval),Random,2,timeout,0,140.0,600,0.1619,112.467,275.942,744.947,145.5,73.12
-"Arena 41x21, 3 ma (moi)",AlphaBeta-d2 (scoreEval),Random,3,timeout,0,-440.0,600,0.0762,132.674,291.89,787.641,137.1,86.59
-"Arena 41x21, 3 ma (moi)",AlphaBeta-d2 (scoreEval),Random,4,timeout,0,-480.0,600,0.0571,167.026,383.92,660.531,169.4,107.69
-"Arena 41x21, 3 ma (moi)",Expectimax-d2 (betterEval),Directional,0,timeout,0,1370.0,600,0.6524,132.632,339.748,1458.288,135.5,85.99
-"Arena 41x21, 3 ma (moi)",Expectimax-d2 (betterEval),Directional,1,lose,0,232.0,178,0.2429,161.421,412.778,862.764,175.9,30.43
-"Arena 41x21, 3 ma (moi)",Expectimax-d2 (betterEval),Directional,2,lose,0,-215.0,105,0.0905,157.04,415.976,1092.828,131.0,17.71
-"Arena 41x21, 3 ma (moi)",Expectimax-d2 (betterEval),Directional,3,lose,0,-30.0,130,0.1905,142.996,351.778,926.769,160.1,19.73
-"Arena 41x21, 3 ma (moi)",Expectimax-d2 (betterEval),Directional,4,timeout,0,1400.0,600,0.7619,66.979,188.26,998.003,145.2,43.25
-"Arena 41x21, 3 ma (moi)",Expectimax-d2 (betterEval),Random,0,timeout,0,450.0,600,0.3095,185.669,472.166,1468.964,168.4,118.61
-"Arena 41x21, 3 ma (moi)",Expectimax-d2 (betterEval),Random,1,timeout,0,120.0,600,0.2476,180.489,463.586,1599.087,178.1,114.7
-"Arena 41x21, 3 ma (moi)",Expectimax-d2 (betterEval),Random,2,timeout,0,110.0,600,0.3381,165.032,383.383,955.127,162.3,105.2
-"Arena 41x21, 3 ma (moi)",Expectimax-d2 (betterEval),Random,3,timeout,0,1140.0,600,0.5429,146.236,344.924,1314.236,144.1,94.03
-"Arena 41x21, 3 ma (moi)",Expectimax-d2 (betterEval),Random,4,timeout,0,-50.0,600,0.2619,179.957,461.271,1063.101,189.3,113.59
-"Arena 41x21, 3 ma (moi)",Reflex,Directional,0,lose,0,239.0,221,0.3619,4.571,6.745,26.712,3.2,3.43
-"Arena 41x21, 3 ma (moi)",Reflex,Directional,1,lose,0,689.0,491,0.6095,3.566,4.89,39.405,3.2,6.0
-"Arena 41x21, 3 ma (moi)",Reflex,Directional,2,lose,0,-349.0,119,0.1286,4.968,7.296,26.724,3.1,1.91
-"Arena 41x21, 3 ma (moi)",Reflex,Directional,3,lose,0,-272.0,252,0.2286,4.663,9.391,42.315,3.1,3.84
-"Arena 41x21, 3 ma (moi)",Reflex,Directional,4,lose,0,264.0,316,0.419,4.922,8.669,41.502,3.2,5.06
-"Arena 41x21, 3 ma (moi)",Reflex,Random,0,timeout,0,90.0,600,0.2333,4.386,6.057,43.992,3.0,9.41
-"Arena 41x21, 3 ma (moi)",Reflex,Random,1,timeout,0,560.0,600,0.5524,4.046,6.076,29.066,3.1,8.28
-"Arena 41x21, 3 ma (moi)",Reflex,Random,2,timeout,0,410.0,600,0.481,3.947,5.948,24.969,3.1,7.79
-"Arena 41x21, 3 ma (moi)",Reflex,Random,3,timeout,0,300.0,600,0.4286,4.329,7.748,50.62,3.1,8.49
-"Arena 41x21, 3 ma (moi)",Reflex,Random,4,timeout,0,230.0,600,0.3952,3.517,4.999,35.752,3.1,7.2
-"mediumClassic (goc, 20x11, 2 ma)",AlphaBeta-d2 (betterEval),Directional,0,win,1,1928.0,142,1.0,25.044,67.74,112.95,77.2,3.94
-"mediumClassic (goc, 20x11, 2 ma)",AlphaBeta-d2 (betterEval),Directional,1,lose,0,692.0,108,0.7216,22.188,50.529,140.709,76.6,2.64
-"mediumClassic (goc, 20x11, 2 ma)",AlphaBeta-d2 (betterEval),Directional,2,win,1,1675.0,195,1.0,16.195,38.233,191.192,61.0,3.56
-"mediumClassic (goc, 20x11, 2 ma)",AlphaBeta-d2 (betterEval),Directional,3,lose,0,916.0,94,0.732,22.428,53.292,99.308,80.6,2.3
-"mediumClassic (goc, 20x11, 2 ma)",AlphaBeta-d2 (betterEval),Directional,4,lose,0,757.0,143,0.8247,20.195,48.865,69.827,74.9,3.21
-"mediumClassic (goc, 20x11, 2 ma)",AlphaBeta-d2 (betterEval),Random,0,win,1,1898.0,172,1.0,21.307,53.064,81.54,75.0,4.06
-"mediumClassic (goc, 20x11, 2 ma)",AlphaBeta-d2 (betterEval),Random,1,lose,0,815.0,245,0.9897,24.379,59.506,105.008,75.2,6.61
-"mediumClassic (goc, 20x11, 2 ma)",AlphaBeta-d2 (betterEval),Random,2,win,1,1660.0,410,1.0,19.447,49.741,220.321,59.8,9.01
-"mediumClassic (goc, 20x11, 2 ma)",AlphaBeta-d2 (betterEval),Random,3,win,1,1910.0,360,1.0,20.028,48.783,153.07,80.1,7.99
-"mediumClassic (goc, 20x11, 2 ma)",AlphaBeta-d2 (betterEval),Random,4,win,1,2126.0,144,1.0,23.415,60.257,175.288,78.7,3.69
-"mediumClassic (goc, 20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Directional,0,lose,0,424.0,286,0.8351,12.286,32.911,87.14,57.2,4.08
-"mediumClassic (goc, 20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Directional,1,lose,0,-91.0,91,0.3093,18.275,41.004,83.636,78.2,1.85
-"mediumClassic (goc, 20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Directional,2,lose,0,381.0,129,0.8351,23.048,63.582,93.613,77.0,3.3
-"mediumClassic (goc, 20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Directional,3,lose,0,497.0,103,0.7216,14.793,38.738,76.376,64.2,1.79
-"mediumClassic (goc, 20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Directional,4,lose,0,104.0,46,0.2577,22.556,43.932,60.221,104.9,1.14
-"mediumClassic (goc, 20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Random,0,lose,0,262.0,348,0.732,24.789,67.805,106.293,91.4,9.61
-"mediumClassic (goc, 20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Random,1,timeout,0,470.0,600,0.6907,24.226,60.095,179.89,81.9,16.41
-"mediumClassic (goc, 20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Random,2,lose,0,-308.0,28,0.2268,19.609,55.475,61.252,67.1,0.65
-"mediumClassic (goc, 20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Random,3,lose,0,423.0,447,0.7938,22.202,55.152,136.947,74.9,11.15
-"mediumClassic (goc, 20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Random,4,lose,0,156.0,474,0.7526,16.255,36.789,84.788,72.6,8.76
-"mediumClassic (goc, 20x11, 2 ma)",Expectimax-d2 (betterEval),Directional,0,lose,0,264.0,86,0.6701,32.684,79.156,148.394,119.8,2.99
-"mediumClassic (goc, 20x11, 2 ma)",Expectimax-d2 (betterEval),Directional,1,win,1,1898.0,172,1.0,32.062,90.165,152.241,112.7,5.96
-"mediumClassic (goc, 20x11, 2 ma)",Expectimax-d2 (betterEval),Directional,2,win,1,1675.0,195,1.0,22.277,65.455,134.907,84.4,4.79
-"mediumClassic (goc, 20x11, 2 ma)",Expectimax-d2 (betterEval),Directional,3,lose,0,916.0,94,0.732,32.11,87.888,146.316,115.7,3.21
-"mediumClassic (goc, 20x11, 2 ma)",Expectimax-d2 (betterEval),Directional,4,lose,0,1053.0,137,0.9175,35.902,87.127,132.169,128.3,5.23
-"mediumClassic (goc, 20x11, 2 ma)",Expectimax-d2 (betterEval),Random,0,lose,0,973.0,127,0.8247,32.166,77.662,187.3,113.9,4.36
-"mediumClassic (goc, 20x11, 2 ma)",Expectimax-d2 (betterEval),Random,1,lose,0,359.0,451,0.9381,17.836,54.855,165.994,70.1,8.97
-"mediumClassic (goc, 20x11, 2 ma)",Expectimax-d2 (betterEval),Random,2,win,1,1875.0,195,1.0,24.6,63.68,113.707,91.7,5.22
-"mediumClassic (goc, 20x11, 2 ma)",Expectimax-d2 (betterEval),Random,3,win,1,1947.0,323,1.0,27.047,66.477,138.979,104.4,9.54
-"mediumClassic (goc, 20x11, 2 ma)",Expectimax-d2 (betterEval),Random,4,win,1,1981.0,289,1.0,24.161,54.73,183.501,89.8,7.57
-"mediumClassic (goc, 20x11, 2 ma)",Reflex,Directional,0,win,1,1896.0,174,1.0,1.226,2.061,4.231,3.3,0.59
-"mediumClassic (goc, 20x11, 2 ma)",Reflex,Directional,1,lose,0,891.0,109,0.7216,1.231,1.894,2.705,3.3,0.36
-"mediumClassic (goc, 20x11, 2 ma)",Reflex,Directional,2,lose,0,244.0,96,0.6598,1.32,1.937,4.979,3.3,0.35
-"mediumClassic (goc, 20x11, 2 ma)",Reflex,Directional,3,lose,0,22.0,68,0.4021,1.608,2.355,14.087,3.2,0.3
-"mediumClassic (goc, 20x11, 2 ma)",Reflex,Directional,4,lose,0,602.0,258,0.9897,1.214,2.023,10.136,3.3,0.89
-"mediumClassic (goc, 20x11, 2 ma)",Reflex,Random,0,win,1,1628.0,242,1.0,1.175,2.039,11.175,3.2,0.77
-"mediumClassic (goc, 20x11, 2 ma)",Reflex,Random,1,win,1,1621.0,249,1.0,1.173,1.919,5.484,3.2,0.84
-"mediumClassic (goc, 20x11, 2 ma)",Reflex,Random,2,win,1,1675.0,195,1.0,1.076,1.817,3.717,3.2,0.61
-"mediumClassic (goc, 20x11, 2 ma)",Reflex,Random,3,win,1,1336.0,134,1.0,1.188,1.853,3.259,3.4,0.42
-"mediumClassic (goc, 20x11, 2 ma)",Reflex,Random,4,win,1,1633.0,237,1.0,1.115,1.809,4.687,3.2,0.75
+map,agent,ghost,seed,outcome,win,died,timeout,score,moves,food_cleared,ms_per_move,p95_ms,max_ms,nodes_per_move,game_seconds
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (betterEval),Directional,1,lose,0,1,0,443.0,247,0.3762,83.647,286.257,870.79,105.0,30.04
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (betterEval),Directional,2,lose,0,1,0,-218.0,108,0.0905,77.497,161.82,368.492,85.5,10.38
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (betterEval),Directional,3,lose,0,1,0,-97.0,117,0.1524,83.429,261.707,388.464,106.6,13.44
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (betterEval),Directional,4,lose,0,1,0,-436.0,116,0.0857,81.802,210.101,260.518,96.4,11.98
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (betterEval),Directional,5,lose,0,1,0,-117.0,317,0.2381,89.757,276.628,1645.976,106.2,41.39
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (betterEval),Directional,6,lose,0,1,0,-423.0,23,0.0476,85.086,144.689,268.53,96.7,2.51
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (betterEval),Directional,7,lose,0,1,0,542.0,378,0.4857,80.392,234.182,11621.812,96.5,53.55
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (betterEval),Directional,8,lose,0,1,0,769.0,481,0.6429,86.575,251.371,995.773,100.1,59.95
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (betterEval),Random,1,lose,0,1,0,-303.0,313,0.1476,116.071,332.724,922.547,142.3,49.91
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (betterEval),Random,2,timeout,0,0,1,110.0,600,0.3381,107.415,261.856,733.216,117.3,82.93
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (betterEval),Random,3,timeout,0,0,1,1140.0,600,0.5429,89.006,255.004,540.507,110.3,75.33
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (betterEval),Random,4,timeout,0,0,1,-50.0,600,0.2619,111.829,287.017,2372.55,129.2,88.93
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (betterEval),Random,5,timeout,0,0,1,670.0,600,0.5095,93.107,227.701,765.408,109.1,73.13
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (betterEval),Random,6,timeout,0,0,1,680.0,600,0.419,102.028,268.914,949.609,127.3,81.39
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (betterEval),Random,7,timeout,0,0,1,440.0,600,0.4,102.104,263.351,956.726,118.7,82.39
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (betterEval),Random,8,timeout,0,0,1,180.0,600,0.3714,84.112,212.347,1887.482,97.4,69.78
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (mazeEval),Directional,1,lose,0,1,0,1608.0,472,0.8476,92.613,263.761,604.838,107.8,58.71
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (mazeEval),Directional,2,lose,0,1,0,907.0,373,0.7524,89.318,255.583,577.848,104.5,47.31
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (mazeEval),Directional,3,timeout,0,0,1,2440.0,600,0.9714,86.182,268.483,597.589,111.1,74.53
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (mazeEval),Directional,4,timeout,0,0,1,2240.0,600,0.9714,85.158,247.297,571.917,104.2,69.6
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (mazeEval),Directional,5,timeout,0,0,1,1830.0,600,0.9667,85.417,260.511,617.829,106.5,72.56
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (mazeEval),Directional,6,lose,0,1,0,340.0,80,0.1524,93.662,279.955,358.097,102.7,10.81
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (mazeEval),Directional,7,lose,0,1,0,997.0,423,0.7238,89.566,277.987,706.378,102.7,51.69
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (mazeEval),Directional,8,lose,0,1,0,972.0,348,0.581,86.394,276.722,601.821,104.4,43.0
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (mazeEval),Random,1,win,1,0,0,2622.0,578,1.0,86.424,270.192,549.866,110.2,70.84
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (mazeEval),Random,2,win,1,0,0,2448.0,552,1.0,90.934,229.494,712.088,109.7,66.78
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (mazeEval),Random,3,win,1,0,0,3052.0,548,1.0,85.792,218.286,532.397,104.0,62.73
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (mazeEval),Random,4,timeout,0,0,1,1680.0,600,0.9905,86.924,238.31,566.695,103.6,70.82
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (mazeEval),Random,5,timeout,0,0,1,1880.0,600,0.9905,83.978,253.849,862.74,111.4,74.2
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (mazeEval),Random,6,timeout,0,0,1,2280.0,600,0.9905,84.891,219.773,523.154,103.0,68.88
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (mazeEval),Random,7,timeout,0,0,1,1870.0,600,0.9857,80.48,250.35,674.079,103.6,70.46
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (mazeEval),Random,8,timeout,0,0,1,1890.0,600,0.9952,84.807,239.755,530.867,102.4,69.94
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (scoreEval),Directional,1,lose,0,1,0,-423.0,33,0.0524,82.242,229.72,386.185,119.5,3.59
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (scoreEval),Directional,2,lose,0,1,0,722.0,388,0.481,59.55,188.128,554.689,90.5,33.87
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (scoreEval),Directional,3,lose,0,1,0,-353.0,93,0.1143,76.468,258.842,478.184,114.8,9.71
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (scoreEval),Directional,4,lose,0,1,0,64.0,266,0.3952,69.533,227.984,763.307,100.6,27.4
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (scoreEval),Directional,5,lose,0,1,0,187.0,263,0.4524,55.944,216.595,2249.878,87.1,25.49
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (scoreEval),Directional,6,lose,0,1,0,-114.0,174,0.1714,54.815,195.677,458.702,79.5,14.97
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (scoreEval),Directional,7,lose,0,1,0,-385.0,45,0.0762,50.381,171.36,305.42,82.8,3.73
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (scoreEval),Directional,8,lose,0,1,0,-421.0,31,0.0524,81.44,198.114,226.143,101.8,3.16
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (scoreEval),Random,1,timeout,0,0,1,240.0,600,0.2095,89.098,270.222,434.914,132.6,72.7
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (scoreEval),Random,2,timeout,0,0,1,140.0,600,0.1619,97.142,308.476,792.674,145.5,79.92
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (scoreEval),Random,3,timeout,0,0,1,-440.0,600,0.0762,94.442,281.151,594.068,137.1,77.01
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (scoreEval),Random,4,timeout,0,0,1,-480.0,600,0.0571,117.441,305.835,698.47,169.4,90.71
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (scoreEval),Random,5,timeout,0,0,1,-340.0,600,0.1238,109.53,288.116,615.658,152.0,83.67
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (scoreEval),Random,6,timeout,0,0,1,-440.0,600,0.0762,111.488,327.847,1884.138,169.8,91.67
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (scoreEval),Random,7,timeout,0,0,1,-240.0,600,0.1714,85.213,215.038,455.794,119.2,65.72
+"Arena (41x21, 3 ma)",AlphaBeta-d2 (scoreEval),Random,8,timeout,0,0,1,170.0,600,0.1762,89.886,266.236,2682.173,135.0,78.24
+"Arena (41x21, 3 ma)",Expectimax-d2 (betterEval),Directional,1,lose,0,1,0,232.0,178,0.2429,148.893,613.139,1176.031,175.9,38.62
+"Arena (41x21, 3 ma)",Expectimax-d2 (betterEval),Directional,2,lose,0,1,0,-215.0,105,0.0905,112.41,339.971,1234.6,131.0,18.48
+"Arena (41x21, 3 ma)",Expectimax-d2 (betterEval),Directional,3,lose,0,1,0,-30.0,130,0.1905,125.663,494.826,1152.643,160.1,25.11
+"Arena (41x21, 3 ma)",Expectimax-d2 (betterEval),Directional,4,timeout,0,0,1,1400.0,600,0.7619,112.647,362.559,1012.935,145.2,97.4
+"Arena (41x21, 3 ma)",Expectimax-d2 (betterEval),Directional,5,lose,0,1,0,-118.0,318,0.2381,117.01,396.247,1395.291,141.9,54.94
+"Arena (41x21, 3 ma)",Expectimax-d2 (betterEval),Directional,6,lose,0,1,0,-413.0,23,0.0524,187.193,397.587,1305.376,202.9,6.02
+"Arena (41x21, 3 ma)",Expectimax-d2 (betterEval),Directional,7,lose,0,1,0,126.0,344,0.3667,114.481,325.492,1336.347,127.4,52.77
+"Arena (41x21, 3 ma)",Expectimax-d2 (betterEval),Directional,8,lose,0,1,0,-279.0,169,0.0905,119.279,336.796,1424.799,145.2,27.77
+"Arena (41x21, 3 ma)",Expectimax-d2 (betterEval),Random,1,timeout,0,0,1,120.0,600,0.2476,143.626,573.199,1543.992,178.1,142.8
+"Arena (41x21, 3 ma)",Expectimax-d2 (betterEval),Random,2,timeout,0,0,1,110.0,600,0.3381,150.119,476.195,14311.356,162.3,136.82
+"Arena (41x21, 3 ma)",Expectimax-d2 (betterEval),Random,3,timeout,0,0,1,1140.0,600,0.5429,130.998,405.481,14195.196,144.1,120.29
+"Arena (41x21, 3 ma)",Expectimax-d2 (betterEval),Random,4,timeout,0,0,1,-50.0,600,0.2619,177.766,555.804,11812.99,189.3,153.57
+"Arena (41x21, 3 ma)",Expectimax-d2 (betterEval),Random,5,timeout,0,0,1,670.0,600,0.5095,142.582,417.667,14473.072,158.8,130.83
+"Arena (41x21, 3 ma)",Expectimax-d2 (betterEval),Random,6,timeout,0,0,1,680.0,600,0.419,156.849,550.24,1155.431,176.6,130.76
+"Arena (41x21, 3 ma)",Expectimax-d2 (betterEval),Random,7,timeout,0,0,1,490.0,600,0.519,131.054,407.997,12447.728,145.7,119.18
+"Arena (41x21, 3 ma)",Expectimax-d2 (betterEval),Random,8,timeout,0,0,1,190.0,600,0.3762,133.288,418.272,1197.833,149.3,106.72
+"Arena (41x21, 3 ma)",Expectimax-d2 (mazeEval),Directional,1,lose,0,1,0,1627.0,453,0.8476,139.141,469.772,1266.406,162.0,87.72
+"Arena (41x21, 3 ma)",Expectimax-d2 (mazeEval),Directional,2,timeout,0,0,1,2380.0,600,0.9429,126.146,384.896,1054.725,156.3,103.74
+"Arena (41x21, 3 ma)",Expectimax-d2 (mazeEval),Directional,3,timeout,0,0,1,2690.0,600,0.9952,112.626,370.226,1479.726,150.7,94.66
+"Arena (41x21, 3 ma)",Expectimax-d2 (mazeEval),Directional,4,lose,0,1,0,940.0,320,0.6476,114.115,413.574,1199.302,137.6,53.59
+"Arena (41x21, 3 ma)",Expectimax-d2 (mazeEval),Directional,5,lose,0,1,0,637.0,313,0.6905,122.599,464.716,1179.1,145.1,55.2
+"Arena (41x21, 3 ma)",Expectimax-d2 (mazeEval),Directional,6,lose,0,1,0,340.0,80,0.1524,161.327,434.621,1098.236,164.9,16.77
+"Arena (41x21, 3 ma)",Expectimax-d2 (mazeEval),Directional,7,lose,0,1,0,775.0,335,0.6714,125.998,394.65,1303.379,162.3,57.4
+"Arena (41x21, 3 ma)",Expectimax-d2 (mazeEval),Directional,8,lose,0,1,0,474.0,196,0.2714,97.589,328.911,1396.843,131.3,27.42
+"Arena (41x21, 3 ma)",Expectimax-d2 (mazeEval),Random,1,timeout,0,0,1,1680.0,600,0.9905,135.628,471.128,1645.281,181.9,122.25
+"Arena (41x21, 3 ma)",Expectimax-d2 (mazeEval),Random,2,timeout,0,0,1,1690.0,600,0.9952,131.382,390.411,1012.935,155.1,102.89
+"Arena (41x21, 3 ma)",Expectimax-d2 (mazeEval),Random,3,win,1,0,0,2241.0,559,1.0,129.896,366.405,1278.57,150.9,96.32
+"Arena (41x21, 3 ma)",Expectimax-d2 (mazeEval),Random,4,timeout,0,0,1,1880.0,600,0.9905,124.496,391.039,1377.585,150.1,103.49
+"Arena (41x21, 3 ma)",Expectimax-d2 (mazeEval),Random,5,timeout,0,0,1,2070.0,600,0.9857,124.148,530.881,1208.658,170.8,118.49
+"Arena (41x21, 3 ma)",Expectimax-d2 (mazeEval),Random,6,win,1,0,0,2813.0,587,1.0,125.542,431.29,1497.34,152.8,104.83
+"Arena (41x21, 3 ma)",Expectimax-d2 (mazeEval),Random,7,win,1,0,0,2033.0,567,1.0,132.845,459.473,1167.998,157.9,106.11
+"Arena (41x21, 3 ma)",Expectimax-d2 (mazeEval),Random,8,win,1,0,0,2206.0,594,1.0,138.93,474.799,1262.284,161.3,113.92
+"Arena (41x21, 3 ma)",Reflex,Directional,1,lose,0,1,0,689.0,491,0.6095,3.411,5.99,10.266,3.2,6.27
+"Arena (41x21, 3 ma)",Reflex,Directional,2,lose,0,1,0,-349.0,119,0.1286,3.602,4.913,5.941,3.1,1.52
+"Arena (41x21, 3 ma)",Reflex,Directional,3,lose,0,1,0,-272.0,252,0.2286,3.924,5.997,9.571,3.1,3.53
+"Arena (41x21, 3 ma)",Reflex,Directional,4,lose,0,1,0,264.0,316,0.419,4.695,8.849,18.178,3.2,5.36
+"Arena (41x21, 3 ma)",Reflex,Directional,5,lose,0,1,0,-171.0,101,0.2048,3.841,5.775,7.652,3.3,1.34
+"Arena (41x21, 3 ma)",Reflex,Directional,6,lose,0,1,0,-413.0,23,0.0524,3.817,5.029,6.198,3.3,0.3
+"Arena (41x21, 3 ma)",Reflex,Directional,7,lose,0,1,0,110.0,200,0.1952,5.155,12.143,16.478,3.2,3.8
+"Arena (41x21, 3 ma)",Reflex,Directional,8,lose,0,1,0,828.0,372,0.5238,4.184,8.024,13.335,3.2,5.9
+"Arena (41x21, 3 ma)",Reflex,Random,1,timeout,0,0,1,560.0,600,0.5524,3.787,6.053,8.91,3.1,8.29
+"Arena (41x21, 3 ma)",Reflex,Random,2,timeout,0,0,1,410.0,600,0.481,3.468,6.05,10.74,3.1,7.89
+"Arena (41x21, 3 ma)",Reflex,Random,3,timeout,0,0,1,300.0,600,0.4286,3.385,5.039,7.672,3.1,7.29
+"Arena (41x21, 3 ma)",Reflex,Random,4,timeout,0,0,1,230.0,600,0.3952,3.401,5.391,8.604,3.1,7.36
+"Arena (41x21, 3 ma)",Reflex,Random,5,timeout,0,0,1,690.0,600,0.3286,4.233,6.918,9.946,3.4,8.52
+"Arena (41x21, 3 ma)",Reflex,Random,6,timeout,0,0,1,500.0,600,0.4286,3.436,5.184,7.577,3.1,7.5
+"Arena (41x21, 3 ma)",Reflex,Random,7,timeout,0,0,1,-180.0,600,0.2,3.732,6.473,11.697,3.1,8.64
+"Arena (41x21, 3 ma)",Reflex,Random,8,timeout,0,0,1,-10.0,600,0.281,3.947,7.544,16.06,3.1,9.28
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (betterEval),Directional,1,lose,0,1,0,406.0,274,0.4957,45.569,102.689,180.885,80.7,16.23
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (betterEval),Directional,2,lose,0,1,0,508.0,342,0.641,38.567,98.157,171.848,75.3,18.39
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (betterEval),Directional,3,timeout,0,0,1,90.0,600,0.2479,37.061,76.635,480.694,64.2,30.4
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (betterEval),Directional,4,lose,0,1,0,-130.0,170,0.2906,40.763,84.532,151.079,68.5,9.3
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (betterEval),Directional,5,lose,0,1,0,-295.0,335,0.2906,36.33,70.141,146.676,64.9,15.48
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (betterEval),Directional,6,lose,0,1,0,-348.0,188,0.2906,35.81,76.354,171.894,69.5,9.12
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (betterEval),Directional,7,lose,0,1,0,-270.0,70,0.2564,42.8,94.883,192.876,74.8,4.14
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (betterEval),Directional,8,lose,0,1,0,-143.0,443,0.5128,41.441,93.483,163.827,76.0,24.02
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (betterEval),Random,1,timeout,0,0,1,30.0,600,0.3675,51.201,109.293,233.946,93.5,38.25
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (betterEval),Random,2,timeout,0,0,1,-230.0,600,0.3162,47.763,98.098,243.329,86.4,36.69
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (betterEval),Random,3,timeout,0,0,1,-270.0,600,0.2821,48.635,103.232,179.344,85.9,36.78
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (betterEval),Random,4,timeout,0,0,1,60.0,600,0.3932,53.202,126.84,238.026,91.3,42.56
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (betterEval),Random,5,timeout,0,0,1,-60.0,600,0.2906,46.685,91.029,157.884,83.8,34.84
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (betterEval),Random,6,timeout,0,0,1,-70.0,600,0.2821,51.07,101.534,216.388,81.0,38.54
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (betterEval),Random,7,timeout,0,0,1,170.0,600,0.6581,50.991,114.132,434.082,84.9,39.27
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (betterEval),Random,8,timeout,0,0,1,-10.0,600,0.3333,51.591,123.44,536.256,93.4,40.41
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (mazeEval),Directional,1,lose,0,1,0,-26.0,116,0.3333,57.674,139.101,217.03,88.6,8.97
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (mazeEval),Directional,2,lose,0,1,0,990.0,320,0.6923,45.586,99.918,362.705,78.7,20.01
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (mazeEval),Directional,3,lose,0,1,0,1232.0,278,0.6923,55.661,127.584,215.141,82.0,19.37
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (mazeEval),Directional,4,lose,0,1,0,71.0,139,0.4359,49.58,118.392,473.82,84.8,9.64
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (mazeEval),Directional,5,lose,0,1,0,1188.0,362,0.8974,46.909,109.766,555.883,80.2,23.28
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (mazeEval),Directional,6,lose,0,1,0,1191.0,389,0.9231,43.738,99.515,278.536,80.0,22.91
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (mazeEval),Directional,7,lose,0,1,0,643.0,197,0.4615,51.295,133.231,364.354,90.1,13.83
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (mazeEval),Directional,8,lose,0,1,0,878.0,262,0.7179,43.71,93.858,220.756,78.0,15.12
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (mazeEval),Random,1,win,1,0,0,1978.0,492,1.0,46.42,118.774,273.222,80.4,30.65
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (mazeEval),Random,2,win,1,0,0,1929.0,541,1.0,49.611,146.663,3104.884,90.1,41.02
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (mazeEval),Random,3,win,1,0,0,1293.0,577,1.0,49.739,134.764,4146.409,89.7,44.07
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (mazeEval),Random,4,win,1,0,0,2235.0,435,1.0,45.849,116.306,327.008,77.5,27.44
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (mazeEval),Random,5,timeout,0,0,1,1140.0,600,0.9744,50.714,123.955,3275.763,86.2,43.46
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (mazeEval),Random,6,win,1,0,0,1654.0,416,1.0,51.969,130.954,287.82,84.0,28.47
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (mazeEval),Random,7,win,1,0,0,1577.0,493,1.0,51.516,121.969,3609.513,83.9,37.89
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (mazeEval),Random,8,win,1,0,0,1738.0,532,1.0,47.814,130.745,594.414,84.1,36.55
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (scoreEval),Directional,1,timeout,0,0,1,-570.0,600,0.0256,38.335,103.176,179.565,82.5,32.8
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (scoreEval),Directional,2,lose,0,1,0,-321.0,131,0.265,27.38,99.454,144.984,61.1,5.26
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (scoreEval),Directional,3,lose,0,1,0,-669.0,539,0.3162,30.413,87.006,138.213,71.6,25.17
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (scoreEval),Directional,4,lose,0,1,0,-287.0,537,0.2991,34.017,96.895,211.452,75.1,25.7
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (scoreEval),Directional,5,lose,0,1,0,-486.0,306,0.2735,31.191,79.347,185.19,69.1,14.04
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (scoreEval),Directional,6,lose,0,1,0,-473.0,93,0.1026,31.522,81.528,148.743,70.4,4.58
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (scoreEval),Directional,7,lose,0,1,0,-283.0,343,0.3077,31.367,81.966,194.333,66.9,15.96
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (scoreEval),Directional,8,lose,0,1,0,-374.0,164,0.2479,34.143,107.425,166.23,75.1,7.9
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (scoreEval),Random,1,timeout,0,0,1,-470.0,600,0.1111,60.811,147.211,656.165,117.0,47.7
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (scoreEval),Random,2,lose,0,1,0,-543.0,313,0.2308,48.368,123.107,267.067,100.1,19.34
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (scoreEval),Random,3,timeout,0,0,1,-500.0,600,0.0855,50.72,129.534,586.393,114.6,41.25
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (scoreEval),Random,4,timeout,0,0,1,-540.0,600,0.0513,48.559,124.576,587.298,106.1,38.56
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (scoreEval),Random,5,timeout,0,0,1,-370.0,600,0.1966,52.755,136.957,878.793,103.1,42.5
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (scoreEval),Random,6,timeout,0,0,1,-460.0,600,0.1197,52.974,133.201,677.949,116.3,42.41
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (scoreEval),Random,7,timeout,0,0,1,-390.0,600,0.1795,53.532,136.374,343.23,114.8,43.71
+"MegaCity (31x21, 3 ma)",AlphaBeta-d2 (scoreEval),Random,8,timeout,0,0,1,-320.0,600,0.0684,53.069,134.208,208.741,111.0,44.4
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (betterEval),Directional,1,lose,0,1,0,-83.0,373,0.5043,46.444,142.878,657.722,93.4,26.08
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (betterEval),Directional,2,lose,0,1,0,508.0,342,0.641,52.796,144.317,243.55,92.0,24.03
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (betterEval),Directional,3,timeout,0,0,1,90.0,600,0.2479,40.114,115.102,352.882,77.5,35.08
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (betterEval),Directional,4,lose,0,1,0,-130.0,170,0.2906,52.961,116.485,205.988,86.8,11.38
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (betterEval),Directional,5,lose,0,1,0,-295.0,335,0.2906,43.842,106.722,2213.281,81.9,22.04
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (betterEval),Directional,6,lose,0,1,0,-348.0,188,0.2906,48.73,152.232,257.904,92.0,12.92
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (betterEval),Directional,7,lose,0,1,0,-270.0,70,0.2564,75.41,185.504,304.559,131.1,7.41
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (betterEval),Directional,8,lose,0,1,0,-144.0,444,0.5128,54.207,157.67,345.067,101.1,33.0
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (betterEval),Random,1,timeout,0,0,1,30.0,600,0.3675,65.161,174.999,354.363,120.0,51.51
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (betterEval),Random,2,timeout,0,0,1,-70.0,600,0.2821,61.933,155.392,505.234,117.6,47.94
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (betterEval),Random,3,timeout,0,0,1,-270.0,600,0.2821,59.827,159.197,2100.155,110.8,50.15
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (betterEval),Random,4,timeout,0,0,1,60.0,600,0.3932,62.416,168.369,488.664,115.4,52.34
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (betterEval),Random,5,timeout,0,0,1,-60.0,600,0.2906,63.423,150.538,237.412,111.7,48.07
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (betterEval),Random,6,timeout,0,0,1,-70.0,600,0.2821,66.699,159.309,351.839,115.0,50.27
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (betterEval),Random,7,timeout,0,0,1,170.0,600,0.6581,64.166,154.163,651.74,112.5,49.65
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (betterEval),Random,8,timeout,0,0,1,-290.0,600,0.265,67.84,173.848,3162.697,114.7,56.63
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (mazeEval),Directional,1,lose,0,1,0,1365.0,485,0.9829,51.042,141.234,297.195,97.9,33.5
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (mazeEval),Directional,2,lose,0,1,0,560.0,330,0.6752,43.556,112.917,354.35,77.5,19.35
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (mazeEval),Directional,3,win,1,0,0,1965.0,505,1.0,55.183,147.954,370.876,102.1,38.0
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (mazeEval),Directional,4,lose,0,1,0,71.0,139,0.4359,58.705,168.568,292.901,113.5,11.5
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (mazeEval),Directional,5,win,1,0,0,2095.0,575,1.0,55.775,153.519,404.469,108.0,43.94
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (mazeEval),Directional,6,lose,0,1,0,1515.0,495,0.9487,62.273,176.847,575.361,113.4,42.47
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (mazeEval),Directional,7,lose,0,1,0,-260.0,70,0.265,68.871,228.648,323.926,114.4,6.83
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (mazeEval),Directional,8,lose,0,1,0,1055.0,315,0.7436,57.121,182.418,318.954,111.1,26.24
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (mazeEval),Random,1,win,1,0,0,2001.0,469,1.0,63.676,185.802,341.508,123.7,39.62
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (mazeEval),Random,2,timeout,0,0,1,1130.0,600,0.9658,58.427,157.729,370.504,112.9,47.43
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (mazeEval),Random,3,win,1,0,0,1962.0,508,1.0,57.091,137.312,466.055,104.5,37.83
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (mazeEval),Random,4,win,1,0,0,2010.0,460,1.0,53.107,144.222,286.774,102.8,32.87
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (mazeEval),Random,5,win,1,0,0,2026.0,444,1.0,60.612,156.045,291.802,111.4,34.61
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (mazeEval),Random,6,win,1,0,0,1657.0,413,1.0,59.651,149.885,272.882,111.2,32.38
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (mazeEval),Random,7,win,1,0,0,1647.0,423,1.0,60.688,148.326,346.669,110.9,33.62
+"MegaCity (31x21, 3 ma)",Expectimax-d2 (mazeEval),Random,8,win,1,0,0,1623.0,447,1.0,65.541,157.351,378.909,120.0,38.45
+"MegaCity (31x21, 3 ma)",Reflex,Directional,1,lose,0,1,0,-251.0,381,0.3675,2.501,3.467,5.127,3.1,3.52
+"MegaCity (31x21, 3 ma)",Reflex,Directional,2,timeout,0,0,1,-240.0,600,0.1368,2.629,5.34,11.531,3.0,6.73
+"MegaCity (31x21, 3 ma)",Reflex,Directional,3,lose,0,1,0,-539.0,269,0.1966,2.54,3.629,5.898,3.1,2.55
+"MegaCity (31x21, 3 ma)",Reflex,Directional,4,lose,0,1,0,-167.0,177,0.265,3.243,5.899,13.025,3.2,2.24
+"MegaCity (31x21, 3 ma)",Reflex,Directional,5,lose,0,1,0,-602.0,122,0.0171,2.53,3.709,4.567,3.0,1.14
+"MegaCity (31x21, 3 ma)",Reflex,Directional,6,lose,0,1,0,9.0,121,0.1966,2.518,4.035,5.56,3.1,1.16
+"MegaCity (31x21, 3 ma)",Reflex,Directional,7,lose,0,1,0,-659.0,369,0.1795,2.515,3.864,5.504,3.1,3.53
+"MegaCity (31x21, 3 ma)",Reflex,Directional,8,lose,0,1,0,-98.0,278,0.4103,2.811,5.152,7.2,3.1,3.0
+"MegaCity (31x21, 3 ma)",Reflex,Random,1,timeout,0,0,1,-180.0,600,0.188,2.972,4.993,9.512,3.0,6.88
+"MegaCity (31x21, 3 ma)",Reflex,Random,2,timeout,0,0,1,-240.0,600,0.1368,2.506,4.208,6.832,3.0,5.78
+"MegaCity (31x21, 3 ma)",Reflex,Random,3,timeout,0,0,1,-230.0,600,0.3162,2.581,4.249,5.791,3.2,5.8
+"MegaCity (31x21, 3 ma)",Reflex,Random,4,lose,0,1,0,-456.0,576,0.5299,3.163,5.54,8.278,3.3,6.85
+"MegaCity (31x21, 3 ma)",Reflex,Random,5,timeout,0,0,1,0.0,600,0.3419,2.528,3.714,8.305,3.1,5.66
+"MegaCity (31x21, 3 ma)",Reflex,Random,6,timeout,0,0,1,-80.0,600,0.2735,2.479,3.654,6.682,3.1,5.77
+"MegaCity (31x21, 3 ma)",Reflex,Random,7,timeout,0,0,1,300.0,600,0.4274,2.841,5.273,11.264,3.1,6.74
+"MegaCity (31x21, 3 ma)",Reflex,Random,8,timeout,0,0,1,-30.0,600,0.4872,2.509,3.528,6.18,3.3,5.62
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (betterEval),Directional,1,lose,0,1,0,692.0,108,0.7216,26.23,72.813,107.271,76.6,3.94
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (betterEval),Directional,2,win,1,0,0,1675.0,195,1.0,16.398,56.44,108.93,61.0,4.94
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (betterEval),Directional,3,lose,0,1,0,916.0,94,0.732,38.455,104.988,144.21,80.6,4.8
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (betterEval),Directional,4,lose,0,1,0,757.0,143,0.8247,23.139,61.481,158.001,74.9,4.43
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (betterEval),Directional,5,win,1,0,0,2089.0,181,1.0,14.49,60.92,125.029,60.2,4.27
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (betterEval),Directional,6,win,1,0,0,1902.0,168,1.0,19.875,64.768,149.251,74.5,4.76
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (betterEval),Directional,7,win,1,0,0,1914.0,156,1.0,36.66,101.353,203.287,75.3,7.84
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (betterEval),Directional,8,lose,0,1,0,895.0,165,0.9897,29.405,107.954,246.633,68.7,7.42
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (betterEval),Random,1,lose,0,1,0,815.0,245,0.9897,43.392,209.809,529.288,75.2,18.7
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (betterEval),Random,2,win,1,0,0,1660.0,410,1.0,27.726,135.46,420.107,59.8,20.6
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (betterEval),Random,3,win,1,0,0,1910.0,360,1.0,26.726,81.07,230.681,80.1,13.49
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (betterEval),Random,4,win,1,0,0,2126.0,144,1.0,25.624,96.681,165.004,78.7,6.01
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (betterEval),Random,5,win,1,0,0,1809.0,261,1.0,47.913,181.016,358.222,78.0,19.69
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (betterEval),Random,6,win,1,0,0,1907.0,163,1.0,53.166,201.554,310.95,78.9,14.07
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (betterEval),Random,7,win,1,0,0,2081.0,189,1.0,24.646,83.843,157.999,79.7,6.94
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (betterEval),Random,8,win,1,0,0,1911.0,159,1.0,21.837,64.895,105.965,68.4,4.87
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (mazeEval),Directional,1,win,1,0,0,1719.0,151,1.0,13.815,43.476,89.357,67.9,3.16
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (mazeEval),Directional,2,lose,0,1,0,1006.0,94,0.8247,21.312,73.07,97.445,81.1,2.85
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (mazeEval),Directional,3,lose,0,1,0,991.0,149,0.866,18.518,63.185,109.301,79.8,4.07
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (mazeEval),Directional,4,lose,0,1,0,887.0,123,0.9381,18.783,44.319,86.261,71.6,3.16
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (mazeEval),Directional,5,win,1,0,0,1924.0,146,1.0,15.708,59.64,103.373,73.3,3.6
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (mazeEval),Directional,6,win,1,0,0,1912.0,158,1.0,17.5,51.661,86.004,73.5,3.88
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (mazeEval),Directional,7,lose,0,1,0,694.0,136,0.9588,13.984,42.506,86.278,59.9,2.75
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (mazeEval),Directional,8,win,1,0,0,1893.0,177,1.0,15.609,53.741,94.622,72.0,4.06
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (mazeEval),Random,1,win,1,0,0,2123.0,147,1.0,16.961,55.301,88.655,80.9,3.52
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (mazeEval),Random,2,win,1,0,0,1734.0,136,1.0,17.171,54.862,103.035,71.7,3.47
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (mazeEval),Random,3,win,1,0,0,2125.0,145,1.0,22.717,66.544,330.498,79.1,4.91
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (mazeEval),Random,4,win,1,0,0,2105.0,165,1.0,15.875,50.205,337.624,80.2,4.21
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (mazeEval),Random,5,win,1,0,0,1917.0,153,1.0,20.623,49.002,111.953,84.7,4.04
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (mazeEval),Random,6,win,1,0,0,1908.0,162,1.0,15.487,45.509,80.92,71.0,3.45
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (mazeEval),Random,7,win,1,0,0,2117.0,153,1.0,21.508,71.621,126.621,76.6,4.59
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (mazeEval),Random,8,win,1,0,0,2115.0,155,1.0,23.805,76.467,159.017,86.8,5.41
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Directional,1,lose,0,1,0,-91.0,91,0.3093,17.446,40.03,53.636,78.2,2.06
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Directional,2,lose,0,1,0,381.0,129,0.8351,13.505,55.737,102.538,77.0,2.78
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Directional,3,lose,0,1,0,497.0,103,0.7216,15.704,58.08,95.478,64.2,2.56
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Directional,4,lose,0,1,0,104.0,46,0.2577,25.198,53.377,72.516,104.9,1.4
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Directional,5,lose,0,1,0,389.0,101,0.6082,30.43,95.543,345.673,91.9,4.35
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Directional,6,lose,0,1,0,729.0,201,0.8557,18.002,81.371,167.587,65.4,6.04
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Directional,7,lose,0,1,0,114.0,396,0.8351,11.228,50.89,209.586,47.1,7.93
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Directional,8,lose,0,1,0,518.0,182,0.8247,18.411,72.127,187.745,57.3,5.89
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Random,1,timeout,0,0,1,470.0,600,0.6907,22.525,73.844,218.782,81.9,19.89
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Random,2,lose,0,1,0,-308.0,28,0.2268,11.204,43.325,49.954,67.1,0.55
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Random,3,lose,0,1,0,423.0,447,0.7938,21.332,62.086,140.893,74.9,13.17
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Random,4,lose,0,1,0,156.0,474,0.7526,16.474,44.112,92.853,72.6,10.79
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Random,5,lose,0,1,0,249.0,571,0.9485,26.155,88.174,281.456,90.8,22.21
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Random,6,timeout,0,0,1,930.0,600,0.9588,17.11,56.597,181.561,82.2,14.58
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Random,7,timeout,0,0,1,770.0,600,0.7938,22.968,77.806,247.312,81.5,20.34
+"mediumClassic (20x11, 2 ma)",AlphaBeta-d2 (scoreEval),Random,8,timeout,0,0,1,940.0,600,0.9691,17.621,50.718,100.846,85.3,14.74
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (betterEval),Directional,1,win,1,0,0,1898.0,172,1.0,25.829,89.792,196.924,112.7,6.16
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (betterEval),Directional,2,win,1,0,0,1675.0,195,1.0,17.507,71.774,348.963,84.4,5.29
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (betterEval),Directional,3,lose,0,1,0,916.0,94,0.732,24.217,96.747,189.322,115.7,3.49
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (betterEval),Directional,4,lose,0,1,0,1053.0,137,0.9175,28.363,93.491,146.582,128.3,5.58
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (betterEval),Directional,5,win,1,0,0,2112.0,158,1.0,19.469,73.882,119.302,94.4,4.5
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (betterEval),Directional,6,win,1,0,0,1899.0,171,1.0,22.785,85.661,158.684,90.6,5.45
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (betterEval),Directional,7,win,1,0,0,1903.0,167,1.0,21.048,62.204,334.675,95.7,4.88
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (betterEval),Directional,8,win,1,0,0,1706.0,164,1.0,19.977,69.339,135.682,100.4,4.8
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (betterEval),Random,1,lose,0,1,0,359.0,451,0.9381,14.689,68.278,420.537,70.1,11.49
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (betterEval),Random,2,win,1,0,0,1875.0,195,1.0,22.748,78.102,162.239,91.7,6.32
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (betterEval),Random,3,win,1,0,0,1947.0,323,1.0,23.659,89.955,220.073,104.4,11.41
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (betterEval),Random,4,win,1,0,0,1981.0,289,1.0,35.95,112.698,208.457,89.8,14.19
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (betterEval),Random,5,win,1,0,0,1852.0,218,1.0,32.078,95.662,399.592,125.8,9.68
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (betterEval),Random,6,lose,0,1,0,897.0,163,0.9897,32.894,160.678,312.018,113.2,9.72
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (betterEval),Random,7,win,1,0,0,2063.0,207,1.0,40.612,138.025,293.959,120.2,11.63
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (betterEval),Random,8,lose,0,1,0,901.0,159,0.9897,23.73,95.34,176.826,96.9,5.55
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (mazeEval),Directional,1,win,1,0,0,1931.0,139,1.0,25.061,84.487,183.157,121.7,5.06
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (mazeEval),Directional,2,win,1,0,0,2093.0,177,1.0,22.076,83.363,232.129,104.7,5.78
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (mazeEval),Directional,3,lose,0,1,0,990.0,150,0.866,25.19,91.308,159.873,111.8,5.43
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (mazeEval),Directional,4,win,1,0,0,2097.0,173,1.0,29.351,99.898,183.976,124.5,7.44
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (mazeEval),Directional,5,lose,0,1,0,913.0,107,0.7423,26.142,97.837,267.632,100.4,3.97
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (mazeEval),Directional,6,lose,0,1,0,779.0,111,0.8144,23.767,100.382,165.005,105.6,4.18
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (mazeEval),Directional,7,lose,0,1,0,694.0,136,0.9588,19.612,70.197,167.974,82.2,3.76
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (mazeEval),Directional,8,lose,0,1,0,924.0,86,0.732,26.842,99.599,146.449,105.5,3.21
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (mazeEval),Random,1,win,1,0,0,2126.0,144,1.0,25.339,89.441,390.107,122.6,5.6
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (mazeEval),Random,2,win,1,0,0,1928.0,142,1.0,20.464,61.05,124.1,95.5,4.09
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (mazeEval),Random,3,win,1,0,0,2136.0,134,1.0,23.195,81.453,156.205,116.4,4.65
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (mazeEval),Random,4,win,1,0,0,2108.0,162,1.0,24.399,78.081,120.736,108.7,5.28
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (mazeEval),Random,5,win,1,0,0,1932.0,138,1.0,37.351,105.241,189.703,132.5,6.23
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (mazeEval),Random,6,win,1,0,0,1914.0,156,1.0,23.654,89.727,152.353,101.3,5.47
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (mazeEval),Random,7,win,1,0,0,2130.0,140,1.0,25.088,107.515,185.9,109.0,5.34
+"mediumClassic (20x11, 2 ma)",Expectimax-d2 (mazeEval),Random,8,win,1,0,0,1899.0,171,1.0,20.206,80.584,112.728,104.6,5.42
+"mediumClassic (20x11, 2 ma)",Reflex,Directional,1,lose,0,1,0,891.0,109,0.7216,1.316,2.687,3.924,3.3,0.43
+"mediumClassic (20x11, 2 ma)",Reflex,Directional,2,lose,0,1,0,244.0,96,0.6598,1.163,1.975,3.918,3.3,0.34
+"mediumClassic (20x11, 2 ma)",Reflex,Directional,3,lose,0,1,0,22.0,68,0.4021,1.19,2.112,3.5,3.2,0.25
+"mediumClassic (20x11, 2 ma)",Reflex,Directional,4,lose,0,1,0,602.0,258,0.9897,1.159,2.193,5.452,3.3,0.97
+"mediumClassic (20x11, 2 ma)",Reflex,Directional,5,win,1,0,0,1723.0,147,1.0,1.275,2.373,3.206,3.4,0.58
+"mediumClassic (20x11, 2 ma)",Reflex,Directional,6,win,1,0,0,1712.0,158,1.0,1.192,2.256,3.854,3.4,0.6
+"mediumClassic (20x11, 2 ma)",Reflex,Directional,7,lose,0,1,0,618.0,162,0.9072,1.145,2.065,2.838,3.3,0.58
+"mediumClassic (20x11, 2 ma)",Reflex,Directional,8,lose,0,1,0,225.0,115,0.6598,1.161,2.103,6.317,3.3,0.43
+"mediumClassic (20x11, 2 ma)",Reflex,Random,1,win,1,0,0,1621.0,249,1.0,1.167,2.266,3.38,3.2,0.94
+"mediumClassic (20x11, 2 ma)",Reflex,Random,2,win,1,0,0,1675.0,195,1.0,1.056,2.158,7.098,3.2,0.71
+"mediumClassic (20x11, 2 ma)",Reflex,Random,3,win,1,0,0,1336.0,134,1.0,1.276,2.243,3.604,3.4,0.52
+"mediumClassic (20x11, 2 ma)",Reflex,Random,4,win,1,0,0,1633.0,237,1.0,1.012,2.148,10.756,3.2,0.85
+"mediumClassic (20x11, 2 ma)",Reflex,Random,5,lose,0,1,0,120.0,120,0.5567,1.104,2.268,4.677,3.3,0.43
+"mediumClassic (20x11, 2 ma)",Reflex,Random,6,lose,0,1,0,-160.0,50,0.4021,1.154,2.485,3.43,3.2,0.19
+"mediumClassic (20x11, 2 ma)",Reflex,Random,7,win,1,0,0,1658.0,212,1.0,1.112,2.041,6.414,3.3,0.74
+"mediumClassic (20x11, 2 ma)",Reflex,Random,8,win,1,0,0,1882.0,188,1.0,1.106,2.022,5.084,3.3,0.64

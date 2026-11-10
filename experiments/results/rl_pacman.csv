@@ -1,33 +1,145 @@
-layout,agent,n_train,seed,win_rate,avg_score,food_cleared,learned_params,train_seconds
-mediumClassic,Approximate Q-Learning (SimpleExtractor),50,1,0.9,1230.2,0.9778,4,26.58
-mediumClassic,Approximate Q-Learning (SimpleExtractor),50,2,0.95,1252.3,0.9634,4,27.5
-mediumClassic,Approximate Q-Learning (SimpleExtractor),200,1,0.9,1202.7,0.9722,4,87.61
-mediumClassic,Approximate Q-Learning (SimpleExtractor),200,2,1.0,1360.5,1.0,4,84.88
-mediumClassic,Approximate Q-Learning (SimpleExtractor),500,1,0.9,1187.0,0.949,4,184.64
-mediumClassic,Approximate Q-Learning (SimpleExtractor),500,2,0.9,1166.8,0.9273,4,181.21
-mediumClassic,Approximate Q-Learning (SimpleExtractor),1000,1,1.0,1321.3,1.0,4,244.36
-mediumClassic,Approximate Q-Learning (SimpleExtractor),1000,2,0.9,1183.2,0.9474,4,239.54
-mediumClassic,Tabular Q-Learning,50,1,0.0,-437.6,0.1082,13115,14.91
-mediumClassic,Tabular Q-Learning,50,2,0.0,-429.5,0.1608,18123,15.84
-mediumClassic,Tabular Q-Learning,200,1,0.0,-381.8,0.1773,43946,55.99
-mediumClassic,Tabular Q-Learning,200,2,0.0,-409.3,0.1701,45925,53.37
-mediumClassic,Tabular Q-Learning,500,1,0.0,-411.1,0.151,93443,103.7
-mediumClassic,Tabular Q-Learning,500,2,0.0,-390.4,0.1691,99969,104.15
-mediumClassic,Tabular Q-Learning,1000,1,0.0,-384.2,0.1588,180962,208.55
-mediumClassic,Tabular Q-Learning,1000,2,0.0,-417.9,0.1361,183862,202.85
-smallGrid,Approximate Q-Learning (SimpleExtractor),50,1,0.6,101.2,0.8,4,1.38
-smallGrid,Approximate Q-Learning (SimpleExtractor),50,2,0.85,352.4,0.925,4,1.41
-smallGrid,Approximate Q-Learning (SimpleExtractor),200,1,0.9,401.9,0.95,4,5.19
-smallGrid,Approximate Q-Learning (SimpleExtractor),200,2,0.5,-1.1,0.75,4,5.06
-smallGrid,Approximate Q-Learning (SimpleExtractor),500,1,0.85,349.8,0.925,4,13.71
-smallGrid,Approximate Q-Learning (SimpleExtractor),500,2,0.65,149.8,0.825,4,18.06
-smallGrid,Approximate Q-Learning (SimpleExtractor),1000,1,0.55,50.2,0.775,4,29.6
-smallGrid,Approximate Q-Learning (SimpleExtractor),1000,2,0.75,252.2,0.875,4,30.89
-smallGrid,Tabular Q-Learning,50,1,0.0,-510.4,0.025,795,0.58
-smallGrid,Tabular Q-Learning,50,2,0.0,-509.1,0.1,1067,0.68
-smallGrid,Tabular Q-Learning,200,1,0.0,-514.5,0.2,2321,3.91
-smallGrid,Tabular Q-Learning,200,2,0.0,-509.6,0.175,2418,4.08
-smallGrid,Tabular Q-Learning,500,1,0.15,-355.3,0.575,4143,9.13
-smallGrid,Tabular Q-Learning,500,2,0.55,37.9,0.65,4379,11.94
-smallGrid,Tabular Q-Learning,1000,1,0.65,145.8,0.825,5671,23.61
-smallGrid,Tabular Q-Learning,1000,2,0.65,137.9,0.7,5789,28.24
+layout,agent,n_train,seed,win_rate,avg_score,food_cleared,avg_moves,learned_params,train_seconds
+MegaCity-Transfer,ApproxQ (IdentityExtractor),50,1,0.0,-597.6,0.0644,189.6,3399,12.07
+MegaCity-Transfer,ApproxQ (IdentityExtractor),50,2,0.0,-573.7,0.0621,209.8,2760,11.83
+MegaCity-Transfer,ApproxQ (IdentityExtractor),50,3,0.0,-538.4,0.0718,212.5,2774,9.53
+MegaCity-Transfer,ApproxQ (IdentityExtractor),200,1,0.0,-574.8,0.0732,190.5,11529,48.92
+MegaCity-Transfer,ApproxQ (IdentityExtractor),200,2,0.0,-549.1,0.0613,177.6,12180,50.82
+MegaCity-Transfer,ApproxQ (IdentityExtractor),200,3,0.0,-550.6,0.0726,202.4,12061,47.56
+MegaCity-Transfer,ApproxQ (IdentityExtractor),500,1,0.0,-588.9,0.0607,176.6,27437,132.95
+MegaCity-Transfer,ApproxQ (IdentityExtractor),500,2,0.0,-614.4,0.0567,197.4,28857,136.8
+MegaCity-Transfer,ApproxQ (IdentityExtractor),500,3,0.0,-569.5,0.0638,217.6,28342,123.88
+MegaCity-Transfer,ApproxQ (IdentityExtractor),1000,1,0.0,-597.6,0.0661,208.3,56364,265.36
+MegaCity-Transfer,ApproxQ (IdentityExtractor),1000,2,0.0,-604.4,0.0598,181.1,56376,264.2
+MegaCity-Transfer,ApproxQ (IdentityExtractor),1000,3,0.0,-577.8,0.0806,222.3,51547,240.32
+MegaCity-Transfer,ApproxQ (MegaCityExtractor),50,1,0.0,-16.3,0.3362,447.0,7,28.05
+MegaCity-Transfer,ApproxQ (MegaCityExtractor),50,2,0.0,53.9,0.359,456.9,7,35.75
+MegaCity-Transfer,ApproxQ (MegaCityExtractor),50,3,0.0,4.1,0.3219,470.0,7,32.64
+MegaCity-Transfer,ApproxQ (MegaCityExtractor),200,1,0.0,3.1,0.3416,464.0,7,165.94
+MegaCity-Transfer,ApproxQ (MegaCityExtractor),200,2,0.0,-39.5,0.316,470.1,7,161.76
+MegaCity-Transfer,ApproxQ (MegaCityExtractor),200,3,0.0,92.8,0.3442,474.1,7,166.3
+MegaCity-Transfer,ApproxQ (MegaCityExtractor),500,1,0.0,52.6,0.355,450.2,7,453.45
+MegaCity-Transfer,ApproxQ (MegaCityExtractor),500,2,0.0,63.0,0.3444,484.2,7,437.34
+MegaCity-Transfer,ApproxQ (MegaCityExtractor),500,3,0.0,-40.1,0.3123,429.4,7,482.12
+MegaCity-Transfer,ApproxQ (MegaCityExtractor),1000,1,0.0,53.0,0.3285,468.9,7,743.33
+MegaCity-Transfer,ApproxQ (MegaCityExtractor),1000,2,0.0,14.6,0.3422,453.1,7,722.58
+MegaCity-Transfer,ApproxQ (MegaCityExtractor),1000,3,0.0,10.1,0.3356,446.7,7,713.3
+MegaCity-Transfer,ApproxQ (SimpleExtractor),50,1,0.9,1144.8,0.967,386.6,4,35.11
+MegaCity-Transfer,ApproxQ (SimpleExtractor),50,2,0.8,991.6,0.9051,374.1,4,28.96
+MegaCity-Transfer,ApproxQ (SimpleExtractor),50,3,0.8,1046.1,0.953,368.9,4,24.33
+MegaCity-Transfer,ApproxQ (SimpleExtractor),200,1,0.8333,1078.4,0.9519,375.2,4,104.28
+MegaCity-Transfer,ApproxQ (SimpleExtractor),200,2,0.7667,971.0,0.8994,348.0,4,101.8
+MegaCity-Transfer,ApproxQ (SimpleExtractor),200,3,0.8333,1084.2,0.9604,396.2,4,105.34
+MegaCity-Transfer,ApproxQ (SimpleExtractor),500,1,0.7667,945.7,0.8783,348.7,4,255.76
+MegaCity-Transfer,ApproxQ (SimpleExtractor),500,2,0.9,1122.2,0.9416,379.5,4,285.06
+MegaCity-Transfer,ApproxQ (SimpleExtractor),500,3,0.7667,1006.4,0.9504,372.2,4,266.0
+MegaCity-Transfer,ApproxQ (SimpleExtractor),1000,1,0.8333,1049.2,0.9422,386.5,4,542.49
+MegaCity-Transfer,ApproxQ (SimpleExtractor),1000,2,0.7,906.6,0.8892,357.1,4,575.93
+MegaCity-Transfer,ApproxQ (SimpleExtractor),1000,3,0.8,1011.7,0.9148,365.3,4,573.91
+MegaCity-Transfer,Tabular Q-Learning,50,1,0.0,-597.6,0.0644,189.6,11149,10.61
+MegaCity-Transfer,Tabular Q-Learning,50,2,0.0,-573.7,0.0621,209.8,8985,8.9
+MegaCity-Transfer,Tabular Q-Learning,50,3,0.0,-538.4,0.0718,212.5,8989,9.08
+MegaCity-Transfer,Tabular Q-Learning,200,1,0.0,-574.8,0.0732,190.5,37642,34.65
+MegaCity-Transfer,Tabular Q-Learning,200,2,0.0,-549.1,0.0613,177.6,39296,36.81
+MegaCity-Transfer,Tabular Q-Learning,200,3,0.0,-550.6,0.0726,202.4,39022,36.64
+MegaCity-Transfer,Tabular Q-Learning,500,1,0.0,-588.9,0.0607,176.6,89231,92.8
+MegaCity-Transfer,Tabular Q-Learning,500,2,0.0,-614.4,0.0567,197.4,94513,99.36
+MegaCity-Transfer,Tabular Q-Learning,500,3,0.0,-569.5,0.0638,217.6,92043,96.08
+MegaCity-Transfer,Tabular Q-Learning,1000,1,0.0,-597.6,0.0661,208.3,184246,220.92
+MegaCity-Transfer,Tabular Q-Learning,1000,2,0.0,-604.4,0.0598,181.1,183409,215.52
+MegaCity-Transfer,Tabular Q-Learning,1000,3,0.0,-577.8,0.0806,222.3,167856,198.76
+mediumClassic,ApproxQ (IdentityExtractor),50,1,0.0,-432.3,0.1368,65.0,3399,12.07
+mediumClassic,ApproxQ (IdentityExtractor),50,2,0.0,-419.4,0.132,47.4,2760,11.83
+mediumClassic,ApproxQ (IdentityExtractor),50,3,0.0,-425.1,0.1488,76.1,2774,9.53
+mediumClassic,ApproxQ (IdentityExtractor),200,1,0.0,-413.9,0.1433,59.6,11529,48.92
+mediumClassic,ApproxQ (IdentityExtractor),200,2,0.0,-419.8,0.1285,44.5,12180,50.82
+mediumClassic,ApproxQ (IdentityExtractor),200,3,0.0,-407.5,0.1522,61.9,12061,47.56
+mediumClassic,ApproxQ (IdentityExtractor),500,1,0.0,-389.5,0.1918,75.5,27437,132.95
+mediumClassic,ApproxQ (IdentityExtractor),500,2,0.0,-378.7,0.1942,73.7,28857,136.8
+mediumClassic,ApproxQ (IdentityExtractor),500,3,0.0,-399.6,0.155,56.6,28342,123.88
+mediumClassic,ApproxQ (IdentityExtractor),1000,1,0.0,-389.6,0.1794,63.6,56364,265.36
+mediumClassic,ApproxQ (IdentityExtractor),1000,2,0.0,-392.6,0.1619,56.2,56376,264.2
+mediumClassic,ApproxQ (IdentityExtractor),1000,3,0.0,-401.9,0.157,54.3,51547,240.32
+mediumClassic,ApproxQ (MegaCityExtractor),50,1,0.9,1696.7,0.9443,172.6,7,28.05
+mediumClassic,ApproxQ (MegaCityExtractor),50,2,0.9333,1733.5,0.9663,170.5,7,35.75
+mediumClassic,ApproxQ (MegaCityExtractor),50,3,0.8333,1650.4,0.9481,155.9,7,32.64
+mediumClassic,ApproxQ (MegaCityExtractor),200,1,0.8,1561.9,0.9333,163.4,7,165.94
+mediumClassic,ApproxQ (MegaCityExtractor),200,2,0.7,1461.1,0.9003,152.3,7,161.76
+mediumClassic,ApproxQ (MegaCityExtractor),200,3,0.9,1754.4,0.9519,162.2,7,166.3
+mediumClassic,ApproxQ (MegaCityExtractor),500,1,0.9,1797.9,0.9863,165.5,7,453.45
+mediumClassic,ApproxQ (MegaCityExtractor),500,2,0.9333,1804.9,0.9595,159.1,7,437.34
+mediumClassic,ApproxQ (MegaCityExtractor),500,3,0.9,1780.9,0.9656,175.7,7,482.12
+mediumClassic,ApproxQ (MegaCityExtractor),1000,1,0.8667,1776.7,0.9519,160.0,7,743.33
+mediumClassic,ApproxQ (MegaCityExtractor),1000,2,0.7667,1616.0,0.9271,156.6,7,722.58
+mediumClassic,ApproxQ (MegaCityExtractor),1000,3,0.9,1789.0,0.9722,180.7,7,713.3
+mediumClassic,ApproxQ (SimpleExtractor),50,1,1.0,1332.1,1.0,144.6,4,35.11
+mediumClassic,ApproxQ (SimpleExtractor),50,2,0.9333,1253.8,0.978,134.8,4,28.96
+mediumClassic,ApproxQ (SimpleExtractor),50,3,1.0,1340.7,1.0,142.6,4,24.33
+mediumClassic,ApproxQ (SimpleExtractor),200,1,0.9333,1215.6,0.946,135.4,4,104.28
+mediumClassic,ApproxQ (SimpleExtractor),200,2,0.9,1190.2,0.9574,138.5,4,101.8
+mediumClassic,ApproxQ (SimpleExtractor),200,3,0.9667,1270.4,0.9725,139.6,4,105.34
+mediumClassic,ApproxQ (SimpleExtractor),500,1,0.9,1210.4,0.9656,132.9,4,255.76
+mediumClassic,ApproxQ (SimpleExtractor),500,2,0.9333,1247.3,0.9732,136.7,4,285.06
+mediumClassic,ApproxQ (SimpleExtractor),500,3,0.9,1188.8,0.9464,135.9,4,266.0
+mediumClassic,ApproxQ (SimpleExtractor),1000,1,0.8667,1133.4,0.9237,129.3,4,542.49
+mediumClassic,ApproxQ (SimpleExtractor),1000,2,0.8667,1159.7,0.957,135.3,4,575.93
+mediumClassic,ApproxQ (SimpleExtractor),1000,3,0.9,1205.9,0.9711,136.1,4,573.91
+mediumClassic,Tabular Q-Learning,50,1,0.0,-432.3,0.1368,65.0,11149,10.61
+mediumClassic,Tabular Q-Learning,50,2,0.0,-419.4,0.132,47.4,8985,8.9
+mediumClassic,Tabular Q-Learning,50,3,0.0,-425.1,0.1488,76.1,8989,9.08
+mediumClassic,Tabular Q-Learning,200,1,0.0,-413.9,0.1433,59.6,37642,34.65
+mediumClassic,Tabular Q-Learning,200,2,0.0,-419.8,0.1285,44.5,39296,36.81
+mediumClassic,Tabular Q-Learning,200,3,0.0,-407.5,0.1522,61.9,39022,36.64
+mediumClassic,Tabular Q-Learning,500,1,0.0,-389.5,0.1918,75.5,89231,92.8
+mediumClassic,Tabular Q-Learning,500,2,0.0,-378.7,0.1942,73.7,94513,99.36
+mediumClassic,Tabular Q-Learning,500,3,0.0,-399.6,0.155,56.6,92043,96.08
+mediumClassic,Tabular Q-Learning,1000,1,0.0,-389.6,0.1794,63.6,184246,220.92
+mediumClassic,Tabular Q-Learning,1000,2,0.0,-392.6,0.1619,56.2,183409,215.52
+mediumClassic,Tabular Q-Learning,1000,3,0.0,-401.9,0.157,54.3,167856,198.76
+smallGrid,ApproxQ (IdentityExtractor),50,1,0.0,-511.4,0.0,11.4,416,0.47
+smallGrid,ApproxQ (IdentityExtractor),50,2,0.0,-510.5,0.05,11.5,386,0.45
+smallGrid,ApproxQ (IdentityExtractor),50,3,0.0,-510.3,0.0333,11.0,456,0.54
+smallGrid,ApproxQ (IdentityExtractor),200,1,0.0,-509.8,0.1,11.8,1376,2.48
+smallGrid,ApproxQ (IdentityExtractor),200,2,0.0333,-476.1,0.35,16.4,1386,2.86
+smallGrid,ApproxQ (IdentityExtractor),200,3,0.0,-514.2,0.1333,16.9,1377,2.8
+smallGrid,ApproxQ (IdentityExtractor),500,1,0.4,-106.1,0.7,20.1,2672,8.66
+smallGrid,ApproxQ (IdentityExtractor),500,2,0.4333,-79.4,0.6,24.7,2569,8.48
+smallGrid,ApproxQ (IdentityExtractor),500,3,0.3667,-142.4,0.6667,22.4,2449,8.62
+smallGrid,ApproxQ (IdentityExtractor),1000,1,0.7333,222.6,0.8667,28.1,4011,19.81
+smallGrid,ApproxQ (IdentityExtractor),1000,2,0.3667,-141.5,0.6,20.2,3870,20.03
+smallGrid,ApproxQ (IdentityExtractor),1000,3,0.9,391.5,0.95,27.5,4040,19.83
+smallGrid,ApproxQ (MegaCityExtractor),50,1,0.7,199.9,0.85,17.1,5,1.33
+smallGrid,ApproxQ (MegaCityExtractor),50,2,0.7,201.6,0.85,15.4,5,1.3
+smallGrid,ApproxQ (MegaCityExtractor),50,3,0.7333,234.3,0.8667,16.3,5,1.15
+smallGrid,ApproxQ (MegaCityExtractor),200,1,0.8333,335.0,0.9167,16.7,5,5.14
+smallGrid,ApproxQ (MegaCityExtractor),200,2,0.7667,267.0,0.8833,17.4,5,4.99
+smallGrid,ApproxQ (MegaCityExtractor),200,3,0.8667,366.8,0.9333,18.5,5,5.28
+smallGrid,ApproxQ (MegaCityExtractor),500,1,0.5667,66.1,0.7833,16.2,5,11.78
+smallGrid,ApproxQ (MegaCityExtractor),500,2,0.6333,133.5,0.8167,16.1,5,12.25
+smallGrid,ApproxQ (MegaCityExtractor),500,3,0.6667,166.5,0.8333,16.8,5,12.52
+smallGrid,ApproxQ (MegaCityExtractor),1000,1,0.7,200.4,0.85,16.6,5,27.07
+smallGrid,ApproxQ (MegaCityExtractor),1000,2,0.7,200.8,0.85,16.2,5,26.4
+smallGrid,ApproxQ (MegaCityExtractor),1000,3,0.7,201.2,0.85,15.8,5,26.26
+smallGrid,ApproxQ (SimpleExtractor),50,1,0.7333,233.9,0.8667,16.7,4,1.2
+smallGrid,ApproxQ (SimpleExtractor),50,2,0.8333,335.2,0.9167,16.5,4,1.15
+smallGrid,ApproxQ (SimpleExtractor),50,3,0.7333,234.3,0.8667,16.3,4,1.13
+smallGrid,ApproxQ (SimpleExtractor),200,1,0.6,99.4,0.8,16.6,4,4.28
+smallGrid,ApproxQ (SimpleExtractor),200,2,0.7333,232.6,0.8667,18.1,4,4.37
+smallGrid,ApproxQ (SimpleExtractor),200,3,0.7,200.6,0.85,16.4,4,4.21
+smallGrid,ApproxQ (SimpleExtractor),500,1,0.7333,233.7,0.8667,17.0,4,11.89
+smallGrid,ApproxQ (SimpleExtractor),500,2,0.7333,233.8,0.8667,16.9,4,12.74
+smallGrid,ApproxQ (SimpleExtractor),500,3,0.8,300.4,0.9,17.6,4,12.08
+smallGrid,ApproxQ (SimpleExtractor),1000,1,0.7667,267.9,0.8833,16.4,4,22.56
+smallGrid,ApproxQ (SimpleExtractor),1000,2,0.8333,334.5,0.9167,17.2,4,22.91
+smallGrid,ApproxQ (SimpleExtractor),1000,3,0.8,301.3,0.9,16.7,4,22.57
+smallGrid,Tabular Q-Learning,50,1,0.0,-511.4,0.0,11.4,839,0.46
+smallGrid,Tabular Q-Learning,50,2,0.0,-510.5,0.05,11.5,715,0.39
+smallGrid,Tabular Q-Learning,50,3,0.0,-510.3,0.0333,11.0,889,0.48
+smallGrid,Tabular Q-Learning,200,1,0.0,-509.8,0.1,11.8,2230,2.79
+smallGrid,Tabular Q-Learning,200,2,0.0333,-476.1,0.35,16.4,2411,2.7
+smallGrid,Tabular Q-Learning,200,3,0.0,-512.4,0.45,21.4,2505,2.72
+smallGrid,Tabular Q-Learning,500,1,0.4,-106.1,0.7,20.1,4148,8.3
+smallGrid,Tabular Q-Learning,500,2,0.4333,-79.4,0.6,24.7,3921,8.16
+smallGrid,Tabular Q-Learning,500,3,0.3667,-142.4,0.6667,22.4,3689,8.46
+smallGrid,Tabular Q-Learning,1000,1,0.7333,222.6,0.8667,28.1,5886,17.88
+smallGrid,Tabular Q-Learning,1000,2,0.3667,-141.5,0.6,20.2,5586,17.71
+smallGrid,Tabular Q-Learning,1000,3,0.7667,258.2,0.8833,26.1,5607,18.28
